@@ -12,36 +12,64 @@ $familyFontTitle: anton;
 $familyFontText: manrope; 
 
 
-/// ===============
+
+/// ================
+/// général
+/// ================
+
+body {
+    overflow: hidden; 
+    background-color:$couleurBackground;
+} 
+
+
+/// ================
 /// Header
 /// ================
 
 .header {
     position: relative;
     background-image: url(./assets/lampos-aritonang-24gR_9lCdes-unsplash\ 1.png);
-    width: 100%;
+    width: 1440px;
     height: 560px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 8%;
+    
     &__logo {
         position: absolute;
         top: 4.8%;
         left: 4.8%;
     }
-    &__container-title {
+    &__title {
         width: 62%;
-        &__title {
-            color: #FFD15B;
-            font-family: $familyFontTitle;
-            text-align: center;
-            font-size: 44px; 
-            margin: auto 0;
-        }
+        color: #FFD15B;
+        font-family: $familyFontTitle;
+        text-align: center;
+        font-size: 44px; 
+        margin: 0;
     }
     &__search-bar {
-
+        position: relative;
+        &__imput {
+            width: 954px;
+            height: 72px;
+            border-radius: 10px;
+            padding-left: 30px;
+        }
+        &__button {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background-color: $CouleurPrimary;
+            border-radius: 5px;
+            border: none;
+            width: 52px;
+            height: 52px;
+            cursor: pointer;
+        }
     }
 }
 

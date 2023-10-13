@@ -12,15 +12,13 @@
 <body>
     <header class= "header">
         <img class= "header__logo" src="./assets/logo.svg" alt="logo">
-        <div class= "header__container-title">
-            <h1 class= "header__container-title__title">CHERCHEZ PARMI PLUS DE 1500 RECETTES DU QUOTIDIEN,SIMPLES ET DÉLICIEUSES</h1>
-        </div >
-        <div class="header__search-bar">
-            <form action="/rechercher" method="get">
-              <input type="text" name="q" placeholder="Rechercher une recette, un ingrédient" />
-              <button type="submit">Rechercher</button>
-            </form>
-        </div> 
+        <h1 class= "header__title">CHERCHEZ PARMI PLUS DE 1500 RECETTES DU QUOTIDIEN,SIMPLES ET DÉLICIEUSES</h1>
+        <form class="header__search-bar" action="/rechercher" method="get">
+            <input class="header__search-bar__imput" type="text" name="q" placeholder="Rechercher une recette, un ingrédient, ..." />
+            <button class="header__search-bar__button" type="submit">
+            <img class="header__search-bar__button__icon" src="./assets/search-logo.svg" alt="Rechercher" />
+            </button>
+        </form>
     </header>
     
 
