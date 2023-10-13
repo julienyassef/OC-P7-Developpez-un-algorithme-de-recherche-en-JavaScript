@@ -59,15 +59,14 @@ body {
             border-radius: 10px;
             padding-left: 30px;
             font: 400 16px $familyFontText;
-            color: $CouleurSecondary;
-            
+            color: $CouleurSecondary;  
         }
         &__button {
             position: absolute;
             top: 12px;
             right: 12px;
             background-color: $CouleurPrimary;
-            border-radius: 5px;
+            border-radius: 10px;
             border: none;
             width: 52px;
             height: 52px;
