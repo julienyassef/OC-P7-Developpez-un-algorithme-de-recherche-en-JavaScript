@@ -35,13 +35,15 @@ body {
   height: 72px;
   border-radius: 10px;
   padding-left: 30px;
+  font: 400 16px manrope;
+  color: #7A7A7A;
 }
 .header__search-bar__button {
   position: absolute;
   top: 12px;
   right: 12px;
   background-color: #1B1B1B;
-  border-radius: 5px;
+  border-radius: 10px;
   border: none;
   width: 52px;
   height: 52px;
