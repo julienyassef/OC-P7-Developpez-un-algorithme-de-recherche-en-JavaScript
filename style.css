@@ -35,6 +35,8 @@ body {
   height: 72px;
   border-radius: 10px;
   padding-left: 30px;
+  font: 400 16px manrope;
+  color: #7A7A7A;
 }
 .header__search-bar__button {
   position: absolute;
