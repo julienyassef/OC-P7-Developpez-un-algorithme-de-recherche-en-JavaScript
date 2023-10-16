@@ -22,10 +22,10 @@ body {
 } 
 .recipe-section {
     margin: 80px 102px 201px 102px;
-    display: flex;
-    justify-content: space-between;  
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;   
 }
-
 
 /// ================
 /// Header
@@ -84,6 +84,7 @@ body {
 /// ================
 
 .recipe-card {
+    position: relative;
     background: #FFF;
     width: 380px;
     height: 731px; 
@@ -97,6 +98,7 @@ body {
     }   
     &__container {
         margin: 32px 25px 61px 25px;
+        
         h2 {
             color: $CouleurPrimary;
             font-family: Anton;
@@ -126,13 +128,33 @@ body {
                 font-weight: 400;
                 line-height: normal;
                 margin-bottom: 32px;
+                text-align: justify;
+                max-height: 76px;
+                overflow: auto;
             }
             &__ingredients {
 
             }
         }
     }
-    &__time {
-
+    &__time-container {
+        position: absolute;
+        top: 21px;
+        right: 22px;
+        background-color: $CouleurTertiary;
+        width: 33px;
+        height: 16px;
+        border-radius: 8px;
+        padding: 5px 15px;
+        justify-content: center;
+        align-items: center;
+        &__time {
+            color: $CouleurPrimary;
+            text-align: center;
+            font-family: Manrope;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 400;
+        }
     }
 }

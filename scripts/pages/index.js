@@ -1775,34 +1775,70 @@ const recipes = [
     }
 ]
 
+
 const getRecipeCardDom = async (recipes) => {
+    
     
     for (let i = 0; i < recipes.length ; i++) {
         const recipe = recipes[i];
 
-        const recipteSection = document.querySelector (".recipte-section");
-    
+        const recipeSection = document.querySelector (".recipe-section");
+
         const recipeCard = document.createElement ('article');
         recipeCard.classList.add('recipe-card');
 
-    //     <article class="recipe-card">
-    //     <img class="recipe-card__image" src="" alt="" >
-    //     <div class="recipe-card__container">
-    //         <h2>titre</h2> 
-    //         <div class="recipe-card__container__description">
-    //             <h3>RECETTE</h3>
-    //             <p class="recipe-card__container__description__recipe"> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam, vero hic? Voluptatibus illo voluptatum vel autem, possimus laborum labore, rerum corrupti blanditiis dignissimos accusantium maxime reiciendis mollitia error voluptas amet!</p>
-    //             <h3>INGREDIENTS</h3>
-    //             <div class="recipe-card__container__desciption__ingredients"></div>
-    //         </div>
-    //     </div>
-    //     <div class="recipe-card__time"></div>
-    // </article>
+        const timeContainer = document.createElement ('div');
+        timeContainer.classList.add('recipe-card__time-container');
 
-        recipteSection.appendChild(recipeCard)
+        const timeRecipe = document.createElement ('div');
+        timeRecipe.classList.add('recipe-card__time-container__time');
+        timeRecipe.textContent =`${recipe.time}min`;
 
-      }
-      
+        const img = document.createElement ('img');
+        img.classList.add('recipe-card__image');
+        // img.src = `./photosRecettes/${recipe.image}`;
+        img.src="./photosRecettes/Recette01.jpg";
+        img.alt = `photo de la recette : ${recipe.name}`;
+
+        const containerCard = document.createElement ('div');
+        containerCard.classList.add('recipe-card__container');
+
+        const recipeTitle = document.createElement ('h2');
+        recipeTitle.textContent = `${recipe.name}`;
+   
+        const descriptionContainer = document.createElement ('div');
+        descriptionContainer.classList.add('recipe-card__container__description');
+
+        const descriptionTitle = document.createElement ('h3');
+        descriptionTitle.textContent = `recette`;
+
+        const descriptionRecipe = document.createElement ('p');
+        descriptionRecipe.classList.add('recipe-card__container__description__recipe');
+        descriptionRecipe.textContent = `${recipe.description}`;
+
+        const ingredientsTitle = document.createElement ('h3');
+        ingredientsTitle.textContent = `ingredients`;
+        
+        const ingredientsList = document.createElement ('div');
+        ingredientsList.classList.add('recipe-card__container__desciption__ingredients');
+    
+
+
+        recipeSection.appendChild(recipeCard);
+        recipeCard.appendChild(img);
+        recipeCard.appendChild(timeContainer);
+        timeContainer.appendChild(timeRecipe)
+        recipeCard.appendChild(containerCard);
+        containerCard.appendChild(recipeTitle);
+        containerCard.appendChild(descriptionContainer);
+        descriptionContainer.appendChild(descriptionTitle)
+        descriptionContainer.appendChild(descriptionRecipe)
+        descriptionContainer.appendChild(ingredientsTitle)
+        descriptionContainer.appendChild(ingredientsList)
+    
+}
+
 }
 
 getRecipeCardDom(recipes);
+

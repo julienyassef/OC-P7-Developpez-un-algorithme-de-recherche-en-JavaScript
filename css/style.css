@@ -4,8 +4,9 @@ body {
 
 .recipe-section {
   margin: 80px 102px 201px 102px;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px;
 }
 
 .header {
@@ -56,6 +57,7 @@ body {
 }
 
 .recipe-card {
+  position: relative;
   background: #FFF;
   width: 380px;
   height: 731px;
@@ -99,4 +101,27 @@ body {
   font-weight: 400;
   line-height: normal;
   margin-bottom: 32px;
+  text-align: justify;
+  max-height: 76px;
+  overflow: auto;
+}
+.recipe-card__time-container {
+  position: absolute;
+  top: 21px;
+  right: 22px;
+  background-color: #FFD15B;
+  width: 33px;
+  height: 16px;
+  border-radius: 8px;
+  padding: 5px 15px;
+  justify-content: center;
+  align-items: center;
+}
+.recipe-card__time-container__time {
+  color: #1B1B1B;
+  text-align: center;
+  font-family: Manrope;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
 }/*# sourceMappingURL=style.css.map */
