@@ -1,0 +1,127 @@
+body {
+  background-color: #EDEDED;
+}
+
+.recipe-section {
+  margin: 80px 102px 201px 102px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px;
+}
+
+.header {
+  position: relative;
+  background-image: url(../assets/lampos-aritonang-24gR_9lCdes-unsplash\ 1.png);
+  width: 1440px;
+  height: 560px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8%;
+}
+.header__logo {
+  position: absolute;
+  top: 4.8%;
+  left: 4.8%;
+}
+.header__title {
+  width: 62%;
+  color: #FFD15B;
+  font-family: anton;
+  text-align: center;
+  font-size: 44px;
+  margin: 0;
+}
+.header__search-bar {
+  position: relative;
+}
+.header__search-bar__imput {
+  width: 954px;
+  height: 72px;
+  border-radius: 10px;
+  padding-left: 30px;
+  font: 400 16px manrope;
+  color: #7A7A7A;
+}
+.header__search-bar__button {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background-color: #1B1B1B;
+  border-radius: 10px;
+  border: none;
+  width: 52px;
+  height: 52px;
+  cursor: pointer;
+}
+
+.recipe-card {
+  position: relative;
+  background: #FFF;
+  width: 380px;
+  height: 731px;
+  border-radius: 21px;
+  box-shadow: 0px 4px 34px 30px rgba(0, 0, 0, 0.04);
+}
+.recipe-card__image {
+  width: 380px;
+  height: 253px;
+  border-radius: 21px 21px 0px 0px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.recipe-card__container {
+  margin: 32px 25px 61px 25px;
+}
+.recipe-card__container h2 {
+  color: #1B1B1B;
+  font-family: Anton;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 1.08px;
+  text-transform: uppercase;
+  margin-bottom: 32px;
+}
+.recipe-card__container__description h3 {
+  color: #7A7A7A;
+  font-family: Manrope;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 1.08px;
+  text-transform: uppercase;
+}
+.recipe-card__container__description__recipe {
+  color: #1B1B1B;
+  font-family: Manrope;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 32px;
+  text-align: justify;
+  max-height: 76px;
+  overflow: auto;
+}
+.recipe-card__time-container {
+  position: absolute;
+  top: 21px;
+  right: 22px;
+  background-color: #FFD15B;
+  width: 33px;
+  height: 16px;
+  border-radius: 8px;
+  padding: 5px 15px;
+  justify-content: center;
+  align-items: center;
+}
+.recipe-card__time-container__time {
+  color: #1B1B1B;
+  text-align: center;
+  font-family: Manrope;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+}/*# sourceMappingURL=style.css.map */
