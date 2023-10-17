@@ -1774,8 +1774,9 @@ const recipes = [
         "ustensils":["rouleau à patisserie","fouet"]
     }
 ]
-
-
+/// ==========================================
+/// modèle de card pour les recettes
+/// ==========================================
 class RecipeCardFactory {
     static createRecipeCard(recipe, ingredients, ustensils) {
       const recipeCard = document.createElement('article');
@@ -1858,6 +1859,10 @@ class RecipeCardFactory {
       return recipeCard;
     }
   }
+
+/// ================================================================================
+/// importe les donnés du fichier recipes.js et pour chaque recette importe une card
+/// ================================================================================
   
   const getRecipeCardDom = async (recipes) => {
     const recipeSection = document.querySelector('.recipe-section');
@@ -1869,10 +1874,20 @@ class RecipeCardFactory {
       const recipeCard = RecipeCardFactory.createRecipeCard(recipe, ingredients, ustensils);
       recipeSection.appendChild(recipeCard);
     }
-  };
-  
+};
   // Utilisation de la méthode Factory pour créer les éléments HTML
   getRecipeCardDom(recipes);
-  
+
+
+/// ==========================================
+/// compte nbr recettes affichés à l'écrans
+/// ==========================================
+ const selectRecipes = document.querySelectorAll('.recipe-card');
  
-  
+ const countRecipe = (recipes) => {
+    const countSection = document.querySelector('.menu-filter__recipe-count');
+
+    let countRecipes = recipes.length;
+    countSection.textContent = `${countRecipes} recettes`; 
+ };
+ countRecipe(selectRecipes);
