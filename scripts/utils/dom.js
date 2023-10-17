@@ -1,4 +1,4 @@
-import { createRecipeCard, createlistIngredients, createlistAppliances } from "./factories.js";
+import { createRecipeCard, createlistIngredients, createlistAppliances, createlistUstensils } from "./factories.js";
 
 
 
@@ -73,45 +73,35 @@ export const displayFilterAppliance = (recipes) =>  {
         }
     });
 
+}
 
+export const displayFilterUstensils = (recipes) =>  {
+    const sectionListUstensils = document.querySelector('.menu-filter__container-filter__menu__list-ustensils');
+
+
+    let listUstensils = []; 
+
+    for (let i = 0; i < recipes.length; i++)  {
+                    const recipe = recipes[i];
+                    const ustensils = recipe.ustensils;
+                   
+                    listUstensils = listUstensils.concat(ustensils)
+                    
+                  }
+
+    const uniqueUstensil = new Set(); 
     
+    listUstensils.forEach((ustensil) => {
+        if (!uniqueUstensil.has(ustensil)) {
+            uniqueUstensil.add(ustensil);
+
+            sectionListUstensils.appendChild(createlistUstensils(ustensil));  
+        }
+    });
 }
 
 
-//     static createApplianceList(appliance) {
-        
-//         const appliancesPush = document.createElement('p');
-//         appliancesPush.classList.add('menu-filter__list-ingredients__appliance');
-//         appliancesPush.textContent = appliance;
 
-//         return appliancesPush;
-//     }
-//     static createUstensilsList(ustensils) {
-
-//         for (let i = 0; i < ustensils.length; i++)  {
-//             const ustensil = ustensils[i];
-//             const ustensilPush = document.createElement('p');
-//             ustensilPush.classList.add('menu-filter__list-ingredients__ustensils');
-//             ustensilPush.textContent = ustensil;
-
-//             return ustensilPush;
-//           }
-//     }
-// }
-
-// const getDateMenuFilter = async (recipes) => {
-    
-//     // sélectionne les div html pour mettre les donnés
-//     
-//     const sectionListUstensils = document.querySelector('.menu-filter__list-ustensils');
-//     const sectionListAppliance = document.querySelector('.menu-filter__list-appliance');
-    
-//     for (let i = 0; i < recipes.length; i++) {
-//         const recipe = recipes[i];
-//         const ingredients = recipe.ingredients;
-//         const appliance = recipe.appliance;
-//         const ustensils = recipe.ustensils;
-        
  
 
 

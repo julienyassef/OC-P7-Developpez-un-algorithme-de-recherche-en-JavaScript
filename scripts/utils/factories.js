@@ -90,3 +90,12 @@ export const createlistAppliances= (appliance) => {
     return applianceElement
 
 }
+export const createlistUstensils = (ustensil) => {
+
+    const ustensilElement = document.createElement('div');
+    ustensilElement.classList.add('menu-filter__container-filter__menu__list-ustensils__ustensils');
+    ustensilElement.textContent = ustensil;
+    return ustensilElement
+
+}
+

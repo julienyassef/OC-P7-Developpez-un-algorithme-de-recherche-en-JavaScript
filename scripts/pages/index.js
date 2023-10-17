@@ -4,6 +4,7 @@ import { saveData } from "../utils/storage.js";
 import { displayRecipes } from "../utils/dom.js";
 import { displayFilterIngredients } from "../utils/dom.js";
 import { displayFilterAppliance } from "../utils/dom.js";
+import { displayFilterUstensils } from "../utils/dom.js";
 
 
 const init = async () => {
@@ -12,7 +13,7 @@ const init = async () => {
     displayRecipes(recipes);
     displayFilterIngredients(recipes);
     displayFilterAppliance(recipes);
-    // displayFilterUstensils(recipes);
+    displayFilterUstensils(recipes);
 }
 init ();
 
