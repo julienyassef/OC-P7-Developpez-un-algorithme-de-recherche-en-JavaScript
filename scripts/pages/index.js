@@ -1777,7 +1777,7 @@ const recipes = [
 
 
 class RecipeCardFactory {
-    static createRecipeCard(recipe, ingredients) {
+    static createRecipeCard(recipe, ingredients, ustensils) {
       const recipeCard = document.createElement('article');
       recipeCard.classList.add('recipe-card');
   
@@ -1836,6 +1836,13 @@ class RecipeCardFactory {
         ingredientDescription.textContent = `${ingredientQuantity} ${ingredientUnit}`;
         ingredientContainer.appendChild(ingredientDescription);
       }
+
+      // permet de faire la liste des ustensils pour chaque recette mais sans les afficher.
+      for (let i = 0; i < ustensils.length; i++)  {
+        const ustensil = ustensils[i];
+        const ustensilList = document.createElement('div')
+        ustensilList.textContent = ustensil;
+      }
   
       recipeCard.appendChild(img);
       recipeCard.appendChild(timeContainer);
@@ -1858,7 +1865,8 @@ class RecipeCardFactory {
     for (let i = 0; i < recipes.length; i++) {
       const recipe = recipes[i];
       const ingredients = recipe.ingredients;
-      const recipeCard = RecipeCardFactory.createRecipeCard(recipe, ingredients);
+      const ustensils = recipe.ustensils
+      const recipeCard = RecipeCardFactory.createRecipeCard(recipe, ingredients, ustensils);
       recipeSection.appendChild(recipeCard);
     }
   };
