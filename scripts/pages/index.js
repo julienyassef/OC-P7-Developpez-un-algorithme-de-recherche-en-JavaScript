@@ -1819,8 +1819,8 @@ class RecipeCardFactory {
 
 
       for (const ingredient of ingredients) {
-        const ingredientName = ingredient.ingredient;
-        const ingredientQuantity = ingredient.quantity;
+        const ingredientName = ingredient.ingredient ;
+        const ingredientQuantity = ingredient.quantity || '';
         const ingredientUnit = ingredient.unit || ''; 
 
         const ingredientContainer = document.createElement('div');
