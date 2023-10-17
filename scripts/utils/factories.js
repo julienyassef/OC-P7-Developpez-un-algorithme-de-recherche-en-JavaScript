@@ -72,3 +72,30 @@ export const createRecipeCard = (recipe) => {
 
     return recipeCard;
 }
+
+export const createlistIngredients= (ingredientName) => {
+
+    const ingredientElement = document.createElement('div');
+    ingredientElement.classList.add('menu-filter__container-filter__menu__list-ingredients__ingredients');
+    ingredientElement.textContent = ingredientName;
+    return ingredientElement
+
+}
+
+export const createlistAppliances= (appliance) => {
+
+    const applianceElement = document.createElement('div');
+    applianceElement.classList.add('menu-filter__container-filter__menu__list-appliance__appliance');
+    applianceElement.textContent = appliance;
+    return applianceElement
+
+}
+export const createlistUstensils = (ustensil) => {
+
+    const ustensilElement = document.createElement('div');
+    ustensilElement.classList.add('menu-filter__container-filter__menu__list-ustensils__ustensils');
+    ustensilElement.textContent = ustensil;
+    return ustensilElement
+
+}
+

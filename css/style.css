@@ -64,6 +64,7 @@ body {
   margin: 40px 102px;
 }
 .menu-filter__container-filter {
+  position: relative;
   display: flex;
   gap: 63px;
 }
@@ -102,6 +103,7 @@ body {
 .menu-filter__container-filter__menu form {
   padding-bottom: 11px;
   position: relative;
+  margin-bottom: 10px;
 }
 .menu-filter__container-filter__menu input {
   width: 174px;
@@ -117,9 +119,51 @@ body {
   top: 8px;
   cursor: pointer;
 }
+.menu-filter__container-filter__menu__list-ingredients {
+  padding-right: 16px;
+}
+.menu-filter__container-filter__menu__list-ingredients__ingredients {
+  color: #1B1B1B;
+  font-family: Manrope;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-bottom: 13px;
+}
+.menu-filter__container-filter__menu__list-appliance {
+  padding-right: 16px;
+}
+.menu-filter__container-filter__menu__list-appliance__appliance {
+  color: #1B1B1B;
+  font-family: Manrope;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-bottom: 13px;
+}
+.menu-filter__container-filter__menu__list-ustensils {
+  padding-right: 16px;
+}
+.menu-filter__container-filter__menu__list-ustensils__ustensils {
+  color: #1B1B1B;
+  font-family: Manrope;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-bottom: 13px;
+}
 .menu-filter__recipe-count {
-  display: inline-flex;
-  align-items: center;
+  position: relative;
+  top: 10px;
   color: #1B1B1B;
   font-family: Anton;
   font-size: 21px;

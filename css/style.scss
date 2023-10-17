@@ -91,6 +91,7 @@ body {
     justify-content: space-between;
     margin: 40px 102px;
     &__container-filter {
+        position: relative;
         display: flex;
         gap: 63px;
         &__menu {
@@ -127,6 +128,7 @@ body {
             & form {
                 padding-bottom: 11px;
                 position: relative;
+                margin-bottom: 10px;
             }
             & input {
                 width: 174px;
@@ -141,18 +143,64 @@ body {
                 right: 20px; 
                 top: 8px;
                 cursor: pointer; 
+            }   
+            &__list-ingredients {
+                padding-right: 16px;
+                
+                &__ingredients {
+                    color: $CouleurPrimary;
+                    font-family: Manrope;
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 400;  
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    margin-bottom: 13px;
+                }
+            }
+            &__list-appliance {
+                padding-right: 16px;
+                
+                &__appliance {
+                    color: $CouleurPrimary;
+                    font-family: Manrope;
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 400;  
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    margin-bottom: 13px;
+                }
+            }
+            &__list-ustensils {
+                padding-right: 16px;
+                
+                &__ustensils {
+                    color: $CouleurPrimary;
+                    font-family: Manrope;
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 400;  
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    margin-bottom: 13px;
+                }
             }
         }
     }
     &__recipe-count {
-        display: inline-flex;
-        align-items: center;
+        position: relative;
+        top: 10px;
         color: $CouleurPrimary;
         font-family: Anton;
         font-size: 21px;
         font-style: normal;
         font-weight: 400;
         }
+   
  }
 /// ================
 /// card recipe
