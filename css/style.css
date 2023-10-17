@@ -70,14 +70,21 @@ body {
 .menu-filter__container-filter__menu {
   background: #FFF;
   width: 195px;
-  height: 30px;
+  height: auto;
   border-radius: 11px;
-  display: inline-flex;
-  padding: 17px 16px;
-  align-items: center;
-  gap: 63px;
+  display: flex;
+  flex-direction: column;
+  padding-left: 16px;
 }
-.menu-filter__container-filter__menu__content {
+.menu-filter__container-filter__menu__group {
+  display: flex;
+  flex-direction: row;
+  padding: 10px 16px 0px 0px;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+}
+.menu-filter__container-filter__menu__group__content {
   margin: 0;
   color: #1B1B1B;
   font-family: Manrope;
@@ -85,10 +92,30 @@ body {
   font-style: normal;
   font-weight: 500;
 }
-.menu-filter__container-filter__menu__arrow {
+.menu-filter__container-filter__menu__group__arrow {
   stroke: #1B1B1B;
   width: 20px;
   height: 12px;
+  transform: rotate(180deg);
+  cursor: pointer;
+}
+.menu-filter__container-filter__menu form {
+  padding-bottom: 11px;
+  position: relative;
+}
+.menu-filter__container-filter__menu input {
+  width: 174px;
+  height: 35px;
+  border-radius: 2px;
+  border: 1.5px solid #c6c6c6;
+}
+.menu-filter__container-filter__menu button {
+  background-color: white;
+  border: none;
+  position: absolute;
+  right: 20px;
+  top: 8px;
+  cursor: pointer;
 }
 .menu-filter__recipe-count {
   display: inline-flex;

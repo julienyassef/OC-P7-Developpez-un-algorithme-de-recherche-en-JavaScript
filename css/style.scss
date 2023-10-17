@@ -96,24 +96,51 @@ body {
         &__menu {
             background: #FFF;
             width: 195px;
-            height: 30px;
+            height: auto;
             border-radius: 11px;
-            display: inline-flex;
-            padding: 17px 16px;
-            align-items: center;
-            gap: 63px;
-            &__content{
-                margin: 0;
-                color: $CouleurPrimary;
-                font-family: Manrope;
-                font-size: 16px;
-                font-style: normal;
-                font-weight: 500;
+            display: flex;
+            flex-direction: column;
+            padding-left: 16px;
+            &__group {
+                display: flex;
+                flex-direction: row;
+                padding: 10px 16px 0px 0px;
+                align-items: center;
+                justify-content: space-between;
+                height: 50px;
+                &__content{
+                    margin: 0;
+                    color: $CouleurPrimary;
+                    font-family: Manrope;
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 500;
+                }
+                &__arrow {
+                    stroke: $CouleurPrimary;
+                    width: 20px;
+                    height: 12px;
+                    transform: rotate(180deg);
+                    cursor: pointer;
+                }
             }
-            &__arrow {
-                stroke: $CouleurPrimary;
-                width: 20px;
-                height: 12px;
+            & form {
+                padding-bottom: 11px;
+                position: relative;
+            }
+            & input {
+                width: 174px;
+                height: 35px;
+                border-radius: 2px;
+                border: 1.5px solid #c6c6c6;
+            }
+            & button {
+                background-color: white;
+                border: none;
+                position: absolute;
+                right: 20px; 
+                top: 8px;
+                cursor: pointer; 
             }
         }
     }
@@ -125,9 +152,8 @@ body {
         font-size: 21px;
         font-style: normal;
         font-weight: 400;
-    }
+        }
  }
-
 /// ================
 /// card recipe
 /// ================
@@ -201,7 +227,6 @@ body {
                         font-weight: 400;
                     }
                 }
-
             }
         }
     }
