@@ -72,3 +72,12 @@ export const createRecipeCard = (recipe) => {
 
     return recipeCard;
 }
+
+export const createlistIngredients= (ingredientName) => {
+
+    const ingredientElement = document.createElement('div');
+    ingredientElement.classList.add('menu-filter__container-filter__menu__list-ingredients__ingredients');
+    ingredientElement.textContent = ingredientName;
+    return ingredientElement
+
+}

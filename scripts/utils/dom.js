@@ -1,4 +1,5 @@
 import { createRecipeCard } from "./factories.js";
+import { createlistIngredients } from "./factories.js";
 
 export const countRecipe = (recipes) => {
    const countSection = document.querySelector('.menu-filter__recipe-count');
@@ -29,24 +30,22 @@ export const displayFilterIngredients = (recipes) => {
         const recipe = recipes[i];
         const ingredients = recipe.ingredients;
         const dataIngredients = ingredients.map((element) => element.ingredient);
-    
+
         // Ajoutez les noms d'ingrédients à la liste
         listIngredients = listIngredients.concat(dataIngredients);
     }
-    
+
     const uniqueIngredients = new Set(); 
-    
+
 
     listIngredients.forEach((ingredientName) => {
         if (!uniqueIngredients.has(ingredientName)) {
             uniqueIngredients.add(ingredientName);
-    
-            const ingredientElement = document.createElement('div');
-            ingredientElement.classList.add('menu-filter__container-filter__menu__list-ingredients__ingredients');
-            ingredientElement.textContent = ingredientName;
-            sectionListIngredients.appendChild(ingredientElement);
+
+            sectionListIngredients.appendChild(createlistIngredients(ingredientName));  
         }
     });
+
 }
 
 

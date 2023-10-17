@@ -10,6 +10,8 @@ const init = async () => {
     saveData(recipes);
     displayRecipes(recipes);
     displayFilterIngredients(recipes);
+    // displayFilterAppliance(recipes);
+    // displayFilterUstensils(recipes);
 }
 init ();
 
