@@ -1,5 +1,6 @@
-import { createRecipeCard } from "./factories.js";
-import { createlistIngredients } from "./factories.js";
+import { createRecipeCard, createlistIngredients, createlistAppliances } from "./factories.js";
+
+
 
 export const countRecipe = (recipes) => {
    const countSection = document.querySelector('.menu-filter__recipe-count');
@@ -48,6 +49,33 @@ export const displayFilterIngredients = (recipes) => {
 
 }
 
+export const displayFilterAppliance = (recipes) =>  {
+    const sectionListAppliance = document.querySelector('.menu-filter__container-filter__menu__list-appliance');
+    
+    let listAppliance = []; 
+    
+    for (let i = 0; i < recipes.length; i++) {
+        const recipe = recipes[i];
+        const appliances= recipe.appliance;
+        
+        // Ajoutez les noms des appareils à la liste
+        listAppliance.push(appliances)
+    }
+
+    const uniqueAppliance = new Set(); 
+
+
+    listAppliance.forEach((appliance) => {
+        if (!uniqueAppliance.has(appliance)) {
+            uniqueAppliance.add(appliance);
+
+            sectionListAppliance.appendChild(createlistAppliances(appliance));  
+        }
+    });
+
+
+    
+}
 
 
 //     static createApplianceList(appliance) {

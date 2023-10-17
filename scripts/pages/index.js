@@ -3,6 +3,7 @@ import { createRecipeCard } from "../utils/factories.js";
 import { saveData } from "../utils/storage.js";
 import { displayRecipes } from "../utils/dom.js";
 import { displayFilterIngredients } from "../utils/dom.js";
+import { displayFilterAppliance } from "../utils/dom.js";
 
 
 const init = async () => {
@@ -10,7 +11,7 @@ const init = async () => {
     saveData(recipes);
     displayRecipes(recipes);
     displayFilterIngredients(recipes);
-    // displayFilterAppliance(recipes);
+    displayFilterAppliance(recipes);
     // displayFilterUstensils(recipes);
 }
 init ();

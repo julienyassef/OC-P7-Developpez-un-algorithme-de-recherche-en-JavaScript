@@ -81,3 +81,12 @@ export const createlistIngredients= (ingredientName) => {
     return ingredientElement
 
 }
+
+export const createlistAppliances= (appliance) => {
+
+    const applianceElement = document.createElement('div');
+    applianceElement.classList.add('menu-filter__container-filter__menu__list-appliance__appliance');
+    applianceElement.textContent = appliance;
+    return applianceElement
+
+}

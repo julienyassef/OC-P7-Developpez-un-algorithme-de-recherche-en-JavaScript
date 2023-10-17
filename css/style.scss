@@ -158,6 +158,21 @@ body {
                     margin-bottom: 13px;
                 }
             }
+            &__list-appliance {
+                padding-right: 16px;
+                
+                &__appliance {
+                    color: $CouleurPrimary;
+                    font-family: Manrope;
+                    font-size: 14px;
+                    font-style: normal;
+                    font-weight: 400;  
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    margin-bottom: 13px;
+                }
+            }
         }
     }
     &__recipe-count {
