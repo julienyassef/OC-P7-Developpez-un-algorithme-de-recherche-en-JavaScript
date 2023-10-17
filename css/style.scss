@@ -19,7 +19,10 @@ $familyFontText: manrope;
 
 body {
     background-color:$couleurBackground;
+    max-width: 1440px;
+    margin: 0 auto;
 } 
+
 .recipe-section {
     margin: 80px 102px 201px 102px;
     display: grid;
@@ -80,6 +83,52 @@ body {
 }
 
 /// ================
+/// menu filter 
+/// ================
+
+ .menu-filter {
+    display: flex;
+    justify-content: space-between;
+    margin: 40px 102px;
+    &__container-filter {
+        display: flex;
+        gap: 63px;
+        &__menu {
+            background: #FFF;
+            width: 195px;
+            height: 30px;
+            border-radius: 11px;
+            display: inline-flex;
+            padding: 17px 16px;
+            align-items: center;
+            gap: 63px;
+            &__content{
+                margin: 0;
+                color: $CouleurPrimary;
+                font-family: Manrope;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 500;
+            }
+            &__arrow {
+                stroke: $CouleurPrimary;
+                width: 20px;
+                height: 12px;
+            }
+        }
+    }
+    &__recipe-count {
+        display: inline-flex;
+        align-items: center;
+        color: $CouleurPrimary;
+        font-family: Anton;
+        font-size: 21px;
+        font-style: normal;
+        font-weight: 400;
+    }
+ }
+
+/// ================
 /// card recipe
 /// ================
 
@@ -98,7 +147,6 @@ body {
     }   
     &__container {
         margin: 32px 25px 61px 25px;
-        
         h2 {
             color: $CouleurPrimary;
             font-family: Anton;
@@ -119,6 +167,7 @@ body {
                 font-weight: 700;
                 letter-spacing: 1.08px;
                 text-transform: uppercase;
+                margin-bottom: 20px;
             }
             &__recipe {
                 color: $CouleurPrimary;
@@ -133,6 +182,25 @@ body {
                 overflow: auto;
             }
             &__ingredients {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+                &__container {
+                    &__name {
+                        color: $CouleurPrimary;
+                        font-family: Manrope;
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 500;
+                    }
+                    &__description {
+                        color: $CouleurSecondary;
+                        font-family: Manrope;
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 400;
+                    }
+                }
 
             }
         }

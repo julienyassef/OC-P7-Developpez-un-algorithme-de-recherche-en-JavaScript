@@ -1774,71 +1774,120 @@ const recipes = [
         "ustensils":["rouleau à patisserie","fouet"]
     }
 ]
+/// ==========================================
+/// modèle de card pour les recettes
+/// ==========================================
+class RecipeCardFactory {
+    static createRecipeCard(recipe, ingredients, ustensils) {
+      const recipeCard = document.createElement('article');
+      recipeCard.classList.add('recipe-card');
+  
+      const timeContainer = document.createElement('div');
+      timeContainer.classList.add('recipe-card__time-container');
+  
+      const timeRecipe = document.createElement('div');
+      timeRecipe.classList.add('recipe-card__time-container__time');
+      timeRecipe.textContent = `${recipe.time}min`;
+  
+      const img = document.createElement('img');
+      img.classList.add('recipe-card__image');
+    //   img.src = `./photosRecettes/${recipe.image}`;
+      img.src="./photosRecettes/Recette01.jpg";
+      img.alt = `photo de la recette : ${recipe.name}`;
+  
+      const containerCard = document.createElement('div');
+      containerCard.classList.add('recipe-card__container');
+  
+      const recipeTitle = document.createElement('h2');
+      recipeTitle.textContent = recipe.name;
+  
+      const descriptionContainer = document.createElement('div');
+      descriptionContainer.classList.add('recipe-card__container__description');
+  
+      const descriptionTitle = document.createElement('h3');
+      descriptionTitle.textContent = 'Recette';
+  
+      const descriptionRecipe = document.createElement('p');
+      descriptionRecipe.classList.add('recipe-card__container__description__recipe');
+      descriptionRecipe.textContent = recipe.description;
+  
+      const ingredientsTitle = document.createElement('h3');
+      ingredientsTitle.textContent = 'Ingrédients';
+  
+      const ingredientsList = document.createElement('div');
+      ingredientsList.classList.add('recipe-card__container__description__ingredients');
 
 
-const getRecipeCardDom = async (recipes) => {
-    
-    
-    for (let i = 0; i < recipes.length ; i++) {
-        const recipe = recipes[i];
+      for (const ingredient of ingredients) {
+        const ingredientName = ingredient.ingredient ;
+        const ingredientQuantity = ingredient.quantity || '';
+        const ingredientUnit = ingredient.unit || ''; 
 
-        const recipeSection = document.querySelector (".recipe-section");
+        const ingredientContainer = document.createElement('div');
+        ingredientContainer.classList.add('recipe-card__container__description__ingredients__container');
+        ingredientsList.appendChild(ingredientContainer);
 
-        const recipeCard = document.createElement ('article');
-        recipeCard.classList.add('recipe-card');
-
-        const timeContainer = document.createElement ('div');
-        timeContainer.classList.add('recipe-card__time-container');
-
-        const timeRecipe = document.createElement ('div');
-        timeRecipe.classList.add('recipe-card__time-container__time');
-        timeRecipe.textContent =`${recipe.time}min`;
-
-        const img = document.createElement ('img');
-        img.classList.add('recipe-card__image');
-        // img.src = `./photosRecettes/${recipe.image}`;
-        img.src="./photosRecettes/Recette01.jpg";
-        img.alt = `photo de la recette : ${recipe.name}`;
-
-        const containerCard = document.createElement ('div');
-        containerCard.classList.add('recipe-card__container');
-
-        const recipeTitle = document.createElement ('h2');
-        recipeTitle.textContent = `${recipe.name}`;
-   
-        const descriptionContainer = document.createElement ('div');
-        descriptionContainer.classList.add('recipe-card__container__description');
-
-        const descriptionTitle = document.createElement ('h3');
-        descriptionTitle.textContent = `recette`;
-
-        const descriptionRecipe = document.createElement ('p');
-        descriptionRecipe.classList.add('recipe-card__container__description__recipe');
-        descriptionRecipe.textContent = `${recipe.description}`;
-
-        const ingredientsTitle = document.createElement ('h3');
-        ingredientsTitle.textContent = `ingredients`;
+        const ingredientAppellation = document.createElement('div');
+        ingredientAppellation.classList.add('recipe-card__container__description__ingredients__container__name');
+        ingredientAppellation.textContent = `${ingredientName}`
+        ingredientContainer.appendChild(ingredientAppellation);
         
-        const ingredientsList = document.createElement ('div');
-        ingredientsList.classList.add('recipe-card__container__desciption__ingredients');
+        const ingredientDescription = document.createElement('div');
+        ingredientDescription.classList.add('recipe-card__container__description__ingredients__container__description');
+        ingredientDescription.textContent = `${ingredientQuantity} ${ingredientUnit}`;
+        ingredientContainer.appendChild(ingredientDescription);
+      }
+
+      // permet de faire la liste des ustensils pour chaque recette mais sans les afficher.
+      for (let i = 0; i < ustensils.length; i++)  {
+        const ustensil = ustensils[i];
+        const ustensilList = document.createElement('div')
+        ustensilList.textContent = ustensil;
+      }
+  
+      recipeCard.appendChild(img);
+      recipeCard.appendChild(timeContainer);
+      timeContainer.appendChild(timeRecipe);
+      recipeCard.appendChild(containerCard);
+      containerCard.appendChild(recipeTitle);
+      containerCard.appendChild(descriptionContainer);
+      descriptionContainer.appendChild(descriptionTitle);
+      descriptionContainer.appendChild(descriptionRecipe);
+      descriptionContainer.appendChild(ingredientsTitle);
+      descriptionContainer.appendChild(ingredientsList);
+  
+      return recipeCard;
+    }
+  }
+
+/// ================================================================================
+/// importe les donnés du fichier recipes.js et pour chaque recette importe une card
+/// ================================================================================
+  
+  const getRecipeCardDom = async (recipes) => {
+    const recipeSection = document.querySelector('.recipe-section');
     
+    for (let i = 0; i < recipes.length; i++) {
+      const recipe = recipes[i];
+      const ingredients = recipe.ingredients;
+      const ustensils = recipe.ustensils
+      const recipeCard = RecipeCardFactory.createRecipeCard(recipe, ingredients, ustensils);
+      recipeSection.appendChild(recipeCard);
+    }
+};
+  // Utilisation de la méthode Factory pour créer les éléments HTML
+  getRecipeCardDom(recipes);
 
 
-        recipeSection.appendChild(recipeCard);
-        recipeCard.appendChild(img);
-        recipeCard.appendChild(timeContainer);
-        timeContainer.appendChild(timeRecipe)
-        recipeCard.appendChild(containerCard);
-        containerCard.appendChild(recipeTitle);
-        containerCard.appendChild(descriptionContainer);
-        descriptionContainer.appendChild(descriptionTitle)
-        descriptionContainer.appendChild(descriptionRecipe)
-        descriptionContainer.appendChild(ingredientsTitle)
-        descriptionContainer.appendChild(ingredientsList)
-    
-}
+/// ==========================================
+/// compte nbr recettes affichés à l'écrans
+/// ==========================================
+ const selectRecipes = document.querySelectorAll('.recipe-card');
+ 
+ const countRecipe = (recipes) => {
+    const countSection = document.querySelector('.menu-filter__recipe-count');
 
-}
-
-getRecipeCardDom(recipes);
-
+    let countRecipes = recipes.length;
+    countSection.textContent = `${countRecipes} recettes`; 
+ };
+ countRecipe(selectRecipes);
