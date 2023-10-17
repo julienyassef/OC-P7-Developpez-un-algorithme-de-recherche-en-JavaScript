@@ -20,7 +20,7 @@ export const displayRecipes = (recipes) => {
 }
 
 export const displayFilterIngredients = (recipes) => {
-    const sectionListIngredients = document.querySelector('.menu-filter__list-ingredients');
+    const sectionListIngredients = document.querySelector('.menu-filter__container-filter__menu__list-ingredients');
     sectionListIngredients.innerHTML = "";
 
     let listIngredients = []; 
@@ -41,8 +41,8 @@ export const displayFilterIngredients = (recipes) => {
         if (!uniqueIngredients.has(ingredientName)) {
             uniqueIngredients.add(ingredientName);
     
-            const ingredientElement = document.createElement('p');
-            ingredientElement.classList.add('menu-filter__list-ingredients__ingredient');
+            const ingredientElement = document.createElement('div');
+            ingredientElement.classList.add('menu-filter__container-filter__menu__list-ingredients__ingredients');
             ingredientElement.textContent = ingredientName;
             sectionListIngredients.appendChild(ingredientElement);
         }
