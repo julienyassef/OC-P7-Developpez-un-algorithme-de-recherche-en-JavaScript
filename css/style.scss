@@ -19,7 +19,10 @@ $familyFontText: manrope;
 
 body {
     background-color:$couleurBackground;
+    max-width: 1440px;
+    margin: 0 auto;
 } 
+
 .recipe-section {
     margin: 80px 102px 201px 102px;
     display: grid;
