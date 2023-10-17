@@ -59,7 +59,6 @@ export const createRecipeCard = (recipe) => {
         
     } )
     
-
     recipeCard.appendChild(img);
     recipeCard.appendChild(timeContainer);
     timeContainer.appendChild(timeRecipe);
