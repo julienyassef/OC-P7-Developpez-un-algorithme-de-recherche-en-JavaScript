@@ -1777,7 +1777,7 @@ const recipes = [
 
 
 class RecipeCardFactory {
-    static createRecipeCard(recipe) {
+    static createRecipeCard(recipe, ingredients) {
       const recipeCard = document.createElement('article');
       recipeCard.classList.add('recipe-card');
   
@@ -1814,8 +1814,28 @@ class RecipeCardFactory {
       ingredientsTitle.textContent = 'Ingrédients';
   
       const ingredientsList = document.createElement('div');
-      ingredientsList.classList.add('recipe-card__container__desciption__ingredients');
-     
+      ingredientsList.classList.add('recipe-card__container__description__ingredients');
+
+
+      for (const ingredient of ingredients) {
+        const ingredientName = ingredient.ingredient;
+        const ingredientQuantity = ingredient.quantity;
+        const ingredientUnit = ingredient.unit || ''; 
+
+        const ingredientContainer = document.createElement('div');
+        ingredientContainer.classList.add('recipe-card__container__description__ingredients__container');
+        ingredientsList.appendChild(ingredientContainer);
+
+        const ingredientAppellation = document.createElement('div');
+        ingredientAppellation.classList.add('recipe-card__container__description__ingredients__container__name');
+        ingredientAppellation.textContent = `${ingredientName}`
+        ingredientContainer.appendChild(ingredientAppellation);
+        
+        const ingredientDescription = document.createElement('div');
+        ingredientDescription.classList.add('recipe-card__container__description__ingredients__container__description');
+        ingredientDescription.textContent = `${ingredientQuantity} ${ingredientUnit}`;
+        ingredientContainer.appendChild(ingredientDescription);
+      }
   
       recipeCard.appendChild(img);
       recipeCard.appendChild(timeContainer);
@@ -1837,11 +1857,14 @@ class RecipeCardFactory {
     
     for (let i = 0; i < recipes.length; i++) {
       const recipe = recipes[i];
-      const recipeCard = RecipeCardFactory.createRecipeCard(recipe);
+      const ingredients = recipe.ingredients;
+      const recipeCard = RecipeCardFactory.createRecipeCard(recipe, ingredients);
       recipeSection.appendChild(recipeCard);
     }
   };
   
   // Utilisation de la méthode Factory pour créer les éléments HTML
   getRecipeCardDom(recipes);
+  
+ 
   

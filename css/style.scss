@@ -98,7 +98,6 @@ body {
     }   
     &__container {
         margin: 32px 25px 61px 25px;
-        
         h2 {
             color: $CouleurPrimary;
             font-family: Anton;
@@ -119,6 +118,7 @@ body {
                 font-weight: 700;
                 letter-spacing: 1.08px;
                 text-transform: uppercase;
+                margin-bottom: 20px;
             }
             &__recipe {
                 color: $CouleurPrimary;
@@ -133,6 +133,25 @@ body {
                 overflow: auto;
             }
             &__ingredients {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+                &__container {
+                    &__name {
+                        color: $CouleurPrimary;
+                        font-family: Manrope;
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 500;
+                    }
+                    &__description {
+                        color: $CouleurSecondary;
+                        font-family: Manrope;
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 400;
+                    }
+                }
 
             }
         }

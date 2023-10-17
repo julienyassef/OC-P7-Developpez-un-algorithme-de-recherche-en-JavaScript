@@ -92,6 +92,7 @@ body {
   font-weight: 700;
   letter-spacing: 1.08px;
   text-transform: uppercase;
+  margin-bottom: 20px;
 }
 .recipe-card__container__description__recipe {
   color: #1B1B1B;
@@ -104,6 +105,25 @@ body {
   text-align: justify;
   max-height: 76px;
   overflow: auto;
+}
+.recipe-card__container__description__ingredients {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.recipe-card__container__description__ingredients__container__name {
+  color: #1B1B1B;
+  font-family: Manrope;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+}
+.recipe-card__container__description__ingredients__container__description {
+  color: #7A7A7A;
+  font-family: Manrope;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
 }
 .recipe-card__time-container {
   position: absolute;
