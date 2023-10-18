@@ -21,7 +21,7 @@ export const displayRecipes = (recipes) => {
    
 }
 
-export const displayFilterIngredients = (recipes) => {
+export const displayListIngredients = (recipes) => {
     const sectionListIngredients = document.querySelector('.menu-filter__container-filter__menu__list-ingredients');
     sectionListIngredients.innerHTML = "";
 
@@ -52,7 +52,7 @@ export const displayFilterIngredients = (recipes) => {
 
 }
 
-export const displayFilterAppliance = (recipes) =>  {
+export const displayListAppliance = (recipes) =>  {
     const sectionListAppliance = document.querySelector('.menu-filter__container-filter__menu__list-appliance');
     
     let listAppliance = []; 
@@ -81,7 +81,7 @@ export const displayFilterAppliance = (recipes) =>  {
 
 }
 
-export const displayFilterUstensils = (recipes) =>  {
+export const displayListUstensils = (recipes) =>  {
     const sectionListUstensils = document.querySelector('.menu-filter__container-filter__menu__list-ustensils');
 
 
@@ -107,6 +107,32 @@ export const displayFilterUstensils = (recipes) =>  {
         }
     });
 }
+
+export const openFilterMenus = () => {
+    const selectArrows = document.querySelectorAll('.menu-filter__container-filter__menu__group__arrow');
+
+    const selectMenuIngredients = document.querySelector('.menu-filter__container-filter__menu__list-ingredients')
+
+    selectArrows.forEach((arrow) => {
+        arrow.addEventListener('click', () => {
+            if(arrow.classList.contains('clicked')){
+                arrow.classList.remove('rotate','clicked');
+            } else {
+                arrow.classList.add('rotate','clicked');
+            }
+
+            if (arrow.classList.contains('arrow-menu-ingredients') && selectMenuIngredients.classList.contains('display')) {
+                selectMenuIngredients.classList.remove('display');
+            } else if (arrow.classList.contains('arrow-menu-ingredients')) {
+                selectMenuIngredients.classList.add('display');
+            }
+            
+        });
+    });
+};
+
+// arrow-menu-ingredients
+
 
 
 

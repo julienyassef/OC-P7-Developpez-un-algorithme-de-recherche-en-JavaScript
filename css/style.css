@@ -169,6 +169,14 @@ body {
   font-weight: 400;
 }
 
+.display {
+  display: none;
+}
+
+.rotate {
+  transform: rotate(0deg);
+}
+
 .recipe-card {
   position: relative;
   background: #FFF;
