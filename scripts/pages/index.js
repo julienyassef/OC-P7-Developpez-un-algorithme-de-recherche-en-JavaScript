@@ -11,6 +11,7 @@ import { searchBarHeader } from "../utils/search.js";
 
 
 
+
 const init = async () => {
     const recipes = await getExternalData();
     saveData(recipes);
@@ -19,9 +20,11 @@ const init = async () => {
     displayListAppliance(recipes);
     displayListUstensils(recipes);
     openFilterMenus();
-    searchBarHeader(recipes);
+    // searchBarHeader(recipes);
+    
 }
 init ();
+
 
 
 

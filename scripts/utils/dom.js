@@ -1,15 +1,18 @@
 import { createRecipeCard, createlistIngredients, createlistAppliances, createlistUstensils } from "./factories.js";
-
+import { searchBarHeader } from "../utils/search.js"
 
 export const countRecipe = (recipes) => {
    const countSection = document.querySelector('.menu-filter__recipe-count');
-
+   
    let countRecipes = recipes.filter(recipe => recipe.display === true).length;
    countSection.textContent = `${countRecipes} recettes`; 
+   
 };
 
+
 export const displayRecipes = (recipes) => {
-    countRecipe(recipes)
+    countRecipe(recipes);
+    searchBarHeader (recipes);
     const domSection = document.querySelector (".recipe-section");
     domSection.innerHTML = "";
     recipes.forEach(recipe => {
@@ -19,6 +22,10 @@ export const displayRecipes = (recipes) => {
     });
    
 }
+
+export const displaySearchResults= (matchingRecipes) => {
+
+};
 
 export const displayListIngredients = (recipes) => {
     const sectionListIngredients = document.querySelector('.menu-filter__container-filter__menu__list-ingredients');

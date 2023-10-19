@@ -16,11 +16,12 @@
             <img src="./assets/logo-circle.svg" alt="cercle logo">
         </div>
         <h1 class= "header__title">CHERCHEZ PARMI PLUS DE 1500 RECETTES DU QUOTIDIEN,SIMPLES ET DÉLICIEUSES</h1>
-        <form class="header__search-bar" action="/rechercher" method="get">
-            <input class="header__search-bar__imput" type="text" name="q" placeholder="Rechercher une recette, un ingrédient, ..." />
-            <button class="header__search-bar__button" type="submit">
+        <form class="header__search-bar" action="/rechercher" method="get" id="searchForm">
+            <input class="header__search-bar__imput" id="searchInput" type="text" name="q" placeholder="Rechercher une recette, un ingrédient, ..." />
+            <button class="header__search-bar__button" type="submit" id="searchButton">
             <img class="header__search-bar__button__icon" src="./assets/search-logo.svg" alt="Rechercher" />
             </button>
+            <div class= "header__message-error" id="messageError"></div>
         </form>
     </header>
     <main>

@@ -58,7 +58,12 @@ body {
     justify-content: center;
     align-items: center;
     gap: 8%;
-    
+    &__message-error {
+        color: red;
+        font-family: $familyFontText;
+        font-size: 12px; 
+        margin: 0;
+    }
     &__logo {
         position: absolute;
         top: 4.8%;
@@ -66,7 +71,7 @@ body {
     }
     &__title {
         width: 62%;
-        color: #FFD15B;
+        color: $CouleurTertiary;
         font-family: $familyFontTitle;
         text-align: center;
         font-size: 44px; 
