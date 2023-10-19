@@ -71,18 +71,19 @@ body {
 }
 .menu-filter__container-filter__menu {
   width: 195px;
-  background: #FFF;
-  border-radius: 11px;
+  height: 500px;
   display: flex;
   flex-direction: column;
 }
 .menu-filter__container-filter__menu__group {
+  background: #FFF;
+  height: 22px;
+  border-radius: 11px 11px 0px 0px;
   display: flex;
   flex-direction: row;
   padding: 20px 16px 8px 16px;
   align-items: center;
   justify-content: space-between;
-  height: 22px;
 }
 .menu-filter__container-filter__menu__group__content {
   margin: 0;
@@ -101,11 +102,14 @@ body {
 }
 .menu-filter__container-filter__menu form {
   position: relative;
+  background: #FFF;
+  height: 50px;
+  border-radius: 0px 0px 11px 11px;
   padding: 9px 16px 17px 16px;
 }
 .menu-filter__container-filter__menu input {
   width: 155px;
-  height: 35px;
+  height: 40px;
   border-radius: 2px;
   border: 1.5px solid #c6c6c6;
 }
@@ -119,18 +123,17 @@ body {
 }
 .menu-filter__container-filter__menu__list-ingredients, .menu-filter__container-filter__menu__list-appliance, .menu-filter__container-filter__menu__list-ustensils {
   width: 195px;
-  height: 195px;
-  background-color: #FFF;
   border-radius: 11px;
   overflow-y: scroll;
 }
 .menu-filter__container-filter__menu__list-ingredients__ingredients, .menu-filter__container-filter__menu__list-ingredients__appliance, .menu-filter__container-filter__menu__list-ingredients__ustensils, .menu-filter__container-filter__menu__list-appliance__ingredients, .menu-filter__container-filter__menu__list-appliance__appliance, .menu-filter__container-filter__menu__list-appliance__ustensils, .menu-filter__container-filter__menu__list-ustensils__ingredients, .menu-filter__container-filter__menu__list-ustensils__appliance, .menu-filter__container-filter__menu__list-ustensils__ustensils {
+  background-color: #FFF;
+  height: 32px;
   color: #1B1B1B;
   font-family: Manrope;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
-  overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
   padding: 0px 16px 13px 16px;

@@ -12,12 +12,14 @@ $familyFontTitle: anton;
 $familyFontText: manrope; 
 
 @mixin list-styles {
+    background-color: #FFF;
+    height: 32px;
     color: $CouleurPrimary;
     font-family: Manrope;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
-    overflow: hidden;
+    // overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
     padding: 0px 16px 13px 16px;
@@ -39,7 +41,7 @@ body {
     margin: 80px 102px 201px 102px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 50px;   
+    gap: 50px;  
 }
 
 /// ================
@@ -108,17 +110,18 @@ body {
         gap: 63px;
         &__menu {
             width: 195px;
-            background: #FFF;
-            border-radius: 11px;
+            height: 500px;
             display: flex;
             flex-direction: column;
-            &__group {
+            &__group { 
+                background: #FFF;
+                height: 22px;
+                border-radius: 11px 11px 0px 0px ;                
                 display: flex;
                 flex-direction: row;
                 padding: 20px 16px 8px 16px;
                 align-items: center;
                 justify-content: space-between;
-                height: 22px;
                 &__content{
                     margin: 0;
                     color: $CouleurPrimary;
@@ -137,11 +140,14 @@ body {
             }
             & form {
                 position: relative;
+                background: #FFF;
+                height: 50px;
+                border-radius: 0px 0px 11px 11px; 
                 padding: 9px 16px 17px 16px;
             }
             & input {
                 width: 155px;
-                height: 35px;
+                height: 40px;
                 border-radius: 2px;
                 border: 1.5px solid #c6c6c6;
             }
@@ -157,8 +163,6 @@ body {
             &__list-appliance,
             &__list-ustensils {
                 width: 195px;
-                height: 195px;
-                background-color: #FFF;
                 border-radius: 11px;
                 overflow-y: scroll;
                 &__ingredients,

@@ -5,7 +5,10 @@ import { displayRecipes } from "../utils/dom.js";
 import { displayListIngredients } from "../utils/dom.js";
 import { displayListAppliance } from "../utils/dom.js";
 import { displayListUstensils } from "../utils/dom.js";
-import { openFilterMenus } from "../utils/dom.js";
+import { openFilterMenus } from "../utils/openMenu.js"; 
+import { searchBarHeader } from "../utils/search.js";
+
+
 
 
 const init = async () => {
@@ -16,6 +19,7 @@ const init = async () => {
     displayListAppliance(recipes);
     displayListUstensils(recipes);
     openFilterMenus();
+    searchBarHeader(recipes);
 }
 init ();
 
