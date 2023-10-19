@@ -16,28 +16,29 @@
             <img src="./assets/logo-circle.svg" alt="cercle logo">
         </div>
         <h1 class= "header__title">CHERCHEZ PARMI PLUS DE 1500 RECETTES DU QUOTIDIEN,SIMPLES ET DÉLICIEUSES</h1>
-        <form class="header__search-bar" action="/rechercher" method="get">
-            <input class="header__search-bar__imput" type="text" name="q" placeholder="Rechercher une recette, un ingrédient, ..." />
-            <button class="header__search-bar__button" type="submit">
+        <form class="header__search-bar" action="/rechercher" method="get" id="searchForm">
+            <input class="header__search-bar__imput" id="searchInput" type="text" name="q" placeholder="Rechercher une recette, un ingrédient, ..." />
+            <button class="header__search-bar__button" type="submit" id="searchButton">
             <img class="header__search-bar__button__icon" src="./assets/search-logo.svg" alt="Rechercher" />
             </button>
+            <div class= "header__message-error" id="messageError"></div>
         </form>
     </header>
     <main>
         <div class="menu-filter">
             <div class="menu-filter__container-filter">
                 <div class="menu-filter__container-filter__menu">
-                    <div class="menu-filter__container-filter__menu__group">
+                    <div class="menu-filter__container-filter__menu__group menu-filter__container-filter__menu__group-ingredients">
                         <p class="menu-filter__container-filter__menu__group__content">Ingrédients</p>
-                        <img class="menu-filter__container-filter__menu__group__arrow" src="./assets/vector.svg" alt="icone fléche">
+                        <img class="menu-filter__container-filter__menu__group__arrow arrow-menu-ingredients" src="./assets/vector.svg" alt="icone fléche">
                     </div>
-                    <form action="/votre-page-de-recherche" method="get">
+                    <form action="/votre-page-de-recherche" method="get" class="menu-filter__container-filter__search-bar-ingredients">
                         <input type="text" name="q" placeholder=" ">
                         <button type="submit" >
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 28 29" fill="none">
                                 <circle cx="10" cy="10.4219" r="9.5" stroke="#c6c6c6"/>
                                 <line x1="18.3536" y1="19.0683" x2="27.3536" y2="28.0683" stroke="#c6c6c6"/>
-                              </svg>
+                            </svg>
                         </button>
                       </form>
                       <div class="menu-filter__container-filter__menu__list-ingredients"></div>
@@ -47,13 +48,13 @@
                         <p class="menu-filter__container-filter__menu__group__content">Appareils</p>
                         <img class="menu-filter__container-filter__menu__group__arrow" src="./assets/vector.svg" alt="icone fléche">
                     </div>
-                    <form action="/votre-page-de-recherche" method="get">
+                    <form action="/votre-page-de-recherche" method="get" class="menu-filter__container-filter__search-bar-appliance">
                         <input type="text" name="q" placeholder=" ">
                         <button type="submit">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 28 29" fill="none">
                                 <circle cx="10" cy="10.4219" r="9.5" stroke="#c6c6c6"/>
                                 <line x1="18.3536" y1="19.0683" x2="27.3536" y2="28.0683" stroke="#c6c6c6"/>
-                              </svg>
+                            </svg>
                         </button>
                       </form>
                       <div class="menu-filter__container-filter__menu__list-appliance"></div>
@@ -63,13 +64,13 @@
                         <p class="menu-filter__container-filter__menu__group__content">Ustensiles</p>
                         <img class="menu-filter__container-filter__menu__group__arrow" src="./assets/vector.svg" alt="icone fléche">
                     </div>
-                    <form action="/votre-page-de-recherche" method="get">
+                    <form action="/votre-page-de-recherche" method="get" class="menu-filter__container-filter__search-bar-ustensils">
                         <input type="text" name="q" placeholder=" ">
                         <button type="submit">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 28 29" fill="none">
                                 <circle cx="10" cy="10.4219" r="9.5" stroke="#c6c6c6"/>
                                 <line x1="18.3536" y1="19.0683" x2="27.3536" y2="28.0683" stroke="#c6c6c6"/>
-                              </svg>
+                            </svg>
                         </button> 
                       </form>
                       <div class="menu-filter__container-filter__menu__list-ustensils"></div>
@@ -77,6 +78,7 @@
             </div>
             <div class="menu-filter__recipe-count"> </div>
         </div>
+        <div class="tags-section"></div>
         <div class="recipe-section"></div>
     </main>
     <script src="scripts/pages/index.js" type="module"></script>
