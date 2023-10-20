@@ -11,21 +11,17 @@ export const countRecipe = (recipes) => {
 
 
 export const displayRecipes = (recipes) => {
-    countRecipe(recipes);
     searchBarHeader (recipes);
     const domSection = document.querySelector (".recipe-section");
     domSection.innerHTML = "";
     recipes.forEach(recipe => {
         if (recipe.display === true){
-           domSection.appendChild(createRecipeCard(recipe))
+            domSection.appendChild(createRecipeCard(recipe))
         };
     });
-   
+    countRecipe(recipes);
 }
 
-export const displaySearchResults= (matchingRecipes) => {
-
-};
 
 export const displayListIngredients = (recipes) => {
     const sectionListIngredients = document.querySelector('.menu-filter__container-filter__menu__list-ingredients');
