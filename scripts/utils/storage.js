@@ -1,7 +1,7 @@
 export const saveData = (data) => {
-localStorage.setItem("data", JSON.stringify(data))
-}
+  localStorage.setItem("data", JSON.stringify(data));
+};
 
 export const getData = () => {
-    return localStorage.getItem("data")
-}
+  return JSON.parse(localStorage.getItem("data"));
+};

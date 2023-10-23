@@ -13,7 +13,6 @@ export const searchBarHeader = () => {
         if (searchText.length >= 3) {
             recipes.forEach(recipe => {
                 recipe.display = false; 
-
                 if (recipe.name.toLowerCase().includes(searchText)) {
                     recipe.display = true;
                 } else if (
