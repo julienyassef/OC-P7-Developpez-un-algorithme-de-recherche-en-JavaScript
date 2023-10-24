@@ -1,5 +1,4 @@
 import { getExternalData } from "../utils/getData.js";
-import { createRecipeCard } from "../utils/factories.js";
 import { saveData } from "../utils/storage.js";
 import { displayRecipes } from "../utils/dom.js";
 import { displayListIngredients } from "../utils/dom.js";
