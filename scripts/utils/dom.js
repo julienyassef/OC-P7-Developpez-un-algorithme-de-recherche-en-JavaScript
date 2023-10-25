@@ -4,6 +4,7 @@ import {
   createlistAppliances,
   createlistUstensils,
 } from "./factories.js";
+
 import { searchBarHeader } from "../utils/search.js";
 
 export const countRecipe = (recipes) => {
@@ -38,6 +39,20 @@ export const displayListIngredients = (recipes) => {
 
     // Ajoutez les noms d'ingrédients à la liste
     listIngredients = listIngredients.concat(dataIngredients);
+    
+    for (let i = 0; i < listIngredients.length; i ++) {
+      listIngredients[i] = listIngredients[i].toLowerCase();
+
+      // Supprimer le "s" à la fin de la chaîne si présent
+      if (listIngredients[i].endsWith("s")) {
+        listIngredients[i] = listIngredients[i].slice(0, -1);
+      }
+
+      // Mettre la première lettre en majuscule
+      listIngredients[i] = listIngredients[i].charAt(0).toUpperCase() + listIngredients[i].slice(1);
+
+    }
+
   }
   //trier le tableau par ordre alphabétiques
   listIngredients.sort();

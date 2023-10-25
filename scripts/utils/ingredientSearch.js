@@ -63,7 +63,6 @@ export const ingredientSearch = () => {
         // click sur un ingredient restant pour créer un tag
         div.addEventListener("click", () => {
           sectionTag.appendChild(createTag(ingrédient));
-
           closeMenuIngredients();
        
         });
