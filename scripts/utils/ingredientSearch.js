@@ -7,6 +7,7 @@ import { displayListIngredients } from "./dom.js";
 export const ingredientSearch = () => {
   const ingredientInput = document.querySelector("#ingredientInput");
 
+// ====== réalise le tri des recettes par rapport à ce qui est entré dans l'input===========
   ingredientInput.addEventListener("input", (event) => {
     const value = event.target.value;
     const recipes = getData();
@@ -29,29 +30,40 @@ export const ingredientSearch = () => {
       return recipe;
     });
 
-    // crée un tableau avec les ingredients des recettes qui ont dislay = true
-    const listIngredientsRecipesDisplayTrue = filteredRecipes
-    .filter(recipe => recipe.display === true)
-    .map(recipe => recipe.ingredients)
-    .map(ingredients => ingredients.map(ingredient => ingredient.ingredient))
-    .reduce((acc, ingredients) => acc.concat(ingredients), [])
+  // ====== filtrer les ingrédients de l'input pour n'afficher que les ingrédients des recette qui sont en display=true===========
 
-  //   const liste2 = displayListIngredients(recipes);
-   
-   
-  //   console.log(liste2)
-  // //  .listIngredients;
+  // crée un tableau avec les ingredients des recettes qui ont dislay = true
+  const listIngredientsRecipesDisplayTrue = filteredRecipes
+  .filter(recipe => recipe.display === true)
+  .map(recipe => recipe.ingredients)
+  .map(ingredients => ingredients.map(ingredient => ingredient.ingredient))
+  .reduce((acc, ingredients) => acc.concat(ingredients), [])
+
+
+  // sélection les élements dans les div pour créés une list d'ingredients à partir des divs du menu ingredients
+  const divsIngredients = document.querySelectorAll('.menu-filter__container-filter__menu__list-ingredients__ingredients');
+
+  const listeIngrédientsDiv = [];
+
+  divsIngredients.forEach(div => {
+    listeIngrédientsDiv.push(div.textContent);
+  });
+
+  // ingrédientsFiltrés contient les ingrédients présents à la fois dans les div et listIngredientsRecipesDisplayTrue
+  const ingrédientsFiltrés = listeIngrédientsDiv.filter(ingrédient => listIngredientsRecipesDisplayTrue.includes(ingrédient));
+
+
+  // Itérer sur les divs d'ingrédients
+  divsIngredients.forEach(div => {
+    const ingrédient = div.textContent;
   
-   
-    
-    const filteredIngredientList = (m) => {
-
-      
+    // Vérifier si l'ingrédient n'est pas dans ingrédientsFiltrés
+    if (!ingrédientsFiltrés.includes(ingrédient)) {
+      // Appliquer une classe CSS pour styliser différemment
+      div.classList.add("display-none");
     }
-    
-
-    // filtrer les ingrédients de l'input
-    // pour n'afficher que les ingrédients des recette qui sont en display=true
+  });
+   
 
     // eventListener('click') sur les ingrédients de la liste
 

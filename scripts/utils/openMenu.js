@@ -13,13 +13,13 @@ export const openFilterMenus = () => {
                 arrow.classList.add('rotate-arrow','clicked');
             }
 
-            if (arrow.classList.contains('arrow-menu-ingredients') && selectMenuIngredients.classList.contains('display-list')) {
-                selectMenuIngredients.classList.remove('display-list');
-                searchBaringredients.classList.remove('display-list')
+            if (arrow.classList.contains('arrow-menu-ingredients') && selectMenuIngredients.classList.contains('display-none')) {
+                selectMenuIngredients.classList.remove('display-none');
+                searchBaringredients.classList.remove('display-none')
                 
             } else if (arrow.classList.contains('arrow-menu-ingredients')) {
-                selectMenuIngredients.classList.add('display-list');
-                searchBaringredients.classList.add('display-list')
+                selectMenuIngredients.classList.add('display-none');
+                searchBaringredients.classList.add('display-none')
                 
             }
             
