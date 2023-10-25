@@ -17,7 +17,6 @@ export const ingredientSearch = () => {
     listIngrédientsDiv.push(div.textContent);
   });
 
-
 // ====== réalise le tri des recettes par rapport à ce qui est entré dans l'input===========
   ingredientInput.addEventListener("input", (event) => {
     const value = event.target.value;
@@ -57,8 +56,7 @@ export const ingredientSearch = () => {
     else {
       // click sur un ingredient restant pour créer un tag
       div.addEventListener('click', () => {
-    
-          
+     
         sectionTag.appendChild(createTag(ingrédient))      
    
       });
