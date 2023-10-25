@@ -14,14 +14,17 @@ import { ingredientSearch } from "../utils/ingredientSearch.js";
 
 
 const init = async () => {
+  // data
   const recipes = await getExternalData();
   saveData(recipes);
 
+  // gestionnaires affichages
   displayRecipes(recipes);
   displayListIngredients(recipes);
   displayListAppliance(recipes);
   displayListUstensils(recipes);
 
+  // gestionnaires des Open / close des menus filter
   openFilterMenuIngredient();
   closeFilterMenuIngredient();
 
