@@ -6,12 +6,9 @@ import { displayListIngredients } from "../utils/dom.js";
 import { displayListAppliance } from "../utils/dom.js";
 import { displayListUstensils } from "../utils/dom.js";
 
-import { openFilterMenuIngredient } from "../utils/FilterMenu.js";
-import { closeFilterMenuIngredient } from "../utils/FilterMenu.js";
+import { openFilterMenus } from "../utils/filterMenu.js";
 
 import { ingredientSearch } from "../utils/ingredientSearch.js";
-
-
 
 const init = async () => {
   // data
@@ -24,12 +21,9 @@ const init = async () => {
   displayListAppliance(recipes);
   displayListUstensils(recipes);
 
-  // gestionnaires des Open / close des menus filter
-  openFilterMenuIngredient();
-  closeFilterMenuIngredient();
+  openFilterMenus();
 
   // gestionnaire des inputs
   ingredientSearch();
-
 };
 init();
