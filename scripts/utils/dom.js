@@ -122,6 +122,21 @@ export const displayListUstensils = (recipes) => {
     const ustensils = recipe.ustensils;
 
     listUstensils = listUstensils.concat(ustensils);
+
+
+    for (let i = 0; i < listUstensils.length; i ++) {
+      listUstensils[i] = listUstensils[i].toLowerCase();
+
+      // Supprimer le "s" à la fin de la chaîne si présent
+      if (listUstensils[i].endsWith("s")) {
+        listUstensils[i] = listUstensils[i].slice(0, -1);
+      }
+
+      // Mettre la première lettre en majuscule
+      listUstensils[i] = listUstensils[i].charAt(0).toUpperCase() + listUstensils[i].slice(1);
+
+    }
+  
   }
   //trier le tableau par ordre alphabétiques
   listUstensils.sort();
