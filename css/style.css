@@ -163,6 +163,7 @@ body {
 
 .section-tag {
   display: flex;
+  flex-wrap: wrap;
   margin: 40px 102px;
   gap: 50px;
 }
