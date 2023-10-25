@@ -21,7 +21,6 @@ $familyFontText: manrope;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
-    // overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
     padding: 8px 16px 8px 16px;
@@ -196,7 +195,34 @@ body {
  .display-none{
     display: none;
  }
+ .section-tag {
+    display: flex;
+    margin: 40px 102px;
+    gap: 50px;
 
+ }
+
+.tag {
+    position: relative;
+    width: 203px;
+    height: 32px;
+    background-color: $CouleurTertiary;
+    color: $CouleurPrimary;
+    font-family: Manrope;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    display: flex;
+    justify-content: space-between;
+    padding: 17px 18px;
+    align-items: center;
+    gap: 60px;
+    border-radius: 10px ;
+  }
+
+.border-Menu-tag-select {
+    border-color: $CouleurTertiary;
+}
  .formatting-Menu {
    
 

@@ -161,6 +161,34 @@ body {
   display: none;
 }
 
+.section-tag {
+  display: flex;
+  margin: 40px 102px;
+  gap: 50px;
+}
+
+.tag {
+  position: relative;
+  width: 203px;
+  height: 32px;
+  background-color: #FFD15B;
+  color: #1B1B1B;
+  font-family: Manrope;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  display: flex;
+  justify-content: space-between;
+  padding: 17px 18px;
+  align-items: center;
+  gap: 60px;
+  border-radius: 10px;
+}
+
+.border-Menu-tag-select {
+  border-color: #FFD15B;
+}
+
 .rotate-arrow {
   transform: rotate(0deg);
 }

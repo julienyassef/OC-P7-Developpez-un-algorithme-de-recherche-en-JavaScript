@@ -100,3 +100,19 @@ export const createlistUstensils = (ustensil) => {
 
 }
 
+export const createTag = (element) => {
+    const tag = document.createElement('div');
+    tag.classList.add('tag');
+  
+    const contentTag = document.createElement('div');
+    contentTag.textContent = element;
+  
+    const svgTag = document.createElement('div');
+    svgTag.innerHTML = '<img src="./assets/crossTag.svg" alt="SVG" />';
+  
+    tag.appendChild(contentTag);
+    tag.appendChild(svgTag);
+  
+    return tag;
+  }
+  

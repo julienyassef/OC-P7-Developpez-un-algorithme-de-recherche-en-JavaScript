@@ -2,6 +2,7 @@ import { getData } from "./storage.js";
 import { saveData } from "./storage.js";
 import { displayRecipes } from "./dom.js";
 import { displayListIngredients } from "./dom.js";
+import { createTag } from "./factories.js";
 
 
 export const ingredientSearch = () => {
@@ -44,7 +45,8 @@ export const ingredientSearch = () => {
 
   // sélection les ingrédients qui contiennent ce qui inscrit dans l'input
   const ingrédientsFiltrésInput = listIngrédientsDiv.filter(ingrédient => ingrédient.toLowerCase().includes(value.toLowerCase()));
-
+  const sectionTag = document.querySelector(".section-tag");  
+       
   // Itérer sur les divs d'ingrédients
   divsIngredients.forEach(div => {
     const ingrédient = div.textContent;
@@ -52,8 +54,16 @@ export const ingredientSearch = () => {
     if (!ingrédientsFiltrésInput.includes(ingrédient)) {
       div.classList.add("display-none");
     }
-  });
-console.log(ingrédientsFiltrésInput);
+    else {
+      // click sur un ingredient restant pour créer un tag
+      div.addEventListener('click', () => {
+    
+          
+        sectionTag.appendChild(createTag(ingrédient))      
+   
+      });
+  };
+});
    
 
     // eventListener('click') sur les ingrédients de la liste
