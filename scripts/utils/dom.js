@@ -81,6 +81,19 @@ export const displayListAppliance = (recipes) => {
 
     // Ajoutez les noms des appareils à la liste
     listAppliance.push(appliances);
+
+    for (let i = 0; i < listAppliance.length; i ++) {
+      listAppliance[i] = listAppliance[i].toLowerCase();
+
+      // Supprimer le "s" à la fin de la chaîne si présent
+      if (listAppliance[i].endsWith("s")) {
+        listAppliance[i] = listAppliance[i].slice(0, -1);
+      }
+
+      // Mettre la première lettre en majuscule
+      listAppliance[i] = listAppliance[i].charAt(0).toUpperCase() + listAppliance[i].slice(1);
+
+    }
   }
 
   //trier le tableau par ordre alphabétiques
