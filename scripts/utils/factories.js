@@ -85,7 +85,7 @@ export const createlistIngredients= (ingredientName) => {
 export const createlistAppliances= (appliance) => {
 
     const applianceElement = document.createElement('div');
-    applianceElement.classList.add('menu-filter__container-filter__menu__list-appliance__appliance');
+    applianceElement.classList.add('menu-filter__container-filter__menu__list-appareils__appliance');
     applianceElement.textContent = appliance;
     return applianceElement
 
@@ -94,7 +94,7 @@ export const createlistAppliances= (appliance) => {
 export const createlistUstensils = (ustensil) => {
 
     const ustensilElement = document.createElement('div');
-    ustensilElement.classList.add('menu-filter__container-filter__menu__list-ustensils__ustensils');
+    ustensilElement.classList.add('menu-filter__container-filter__menu__list-ustensiles__ustensils');
     ustensilElement.textContent = ustensil;
     return ustensilElement
 

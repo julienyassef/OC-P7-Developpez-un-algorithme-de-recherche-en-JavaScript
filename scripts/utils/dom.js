@@ -69,7 +69,7 @@ export const displayListIngredients = (recipes) => {
 
 export const displayListAppliance = (recipes) => {
   const sectionListAppliance = document.querySelector(
-    ".menu-filter__container-filter__menu__list-appliance"
+    ".menu-filter__container-filter__menu__list-appareils"
   );
 
   let listAppliance = [];
@@ -111,7 +111,7 @@ export const displayListAppliance = (recipes) => {
 
 export const displayListUstensils = (recipes) => {
   const sectionListUstensils = document.querySelector(
-    ".menu-filter__container-filter__menu__list-ustensils"
+    ".menu-filter__container-filter__menu__list-ustensiles"
   );
 
   let listUstensils = [];

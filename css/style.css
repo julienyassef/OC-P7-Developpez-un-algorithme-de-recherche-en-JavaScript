@@ -77,7 +77,7 @@ body {
 }
 .menu-filter__container-filter__menu {
   width: 195px;
-  height: 500px;
+  max-height: 500px;
   display: flex;
   flex-direction: column;
 }
@@ -90,6 +90,16 @@ body {
   background: #FFF;
   border-radius: 11px;
   padding: 17px 16px 17px 16px;
+  cursor: pointer;
+}
+.menu-filter__container-filter__menu__group.menu-clicked img {
+  transform: rotate(180deg);
+}
+.menu-filter__container-filter__menu__group.menu-clicked ~ form {
+  display: block;
+}
+.menu-filter__container-filter__menu__group.menu-clicked ~ div {
+  display: block;
 }
 .menu-filter__container-filter__menu__group__content {
   margin: 0;
@@ -103,8 +113,7 @@ body {
   stroke: #1B1B1B;
   width: 20px;
   height: 12px;
-  transform: rotate(180deg);
-  cursor: pointer;
+  transform: rotate(0deg);
 }
 .menu-filter__container-filter__menu form {
   position: relative;
@@ -112,6 +121,7 @@ body {
   height: 50px;
   border-radius: 0px 0px 11px 11px;
   padding: 13px 16px 13px 16px;
+  display: none;
 }
 .menu-filter__container-filter__menu input {
   width: 155px;
@@ -128,12 +138,13 @@ body {
   cursor: pointer;
   padding: 0;
 }
-.menu-filter__container-filter__menu__list-ingredients, .menu-filter__container-filter__menu__list-appliance, .menu-filter__container-filter__menu__list-ustensils {
+.menu-filter__container-filter__menu__list-ingredients, .menu-filter__container-filter__menu__list-appareils, .menu-filter__container-filter__menu__list-ustensiles {
+  display: none;
   width: 195px;
   border-radius: 11px;
   overflow-y: scroll;
 }
-.menu-filter__container-filter__menu__list-ingredients__ingredients, .menu-filter__container-filter__menu__list-ingredients__appliance, .menu-filter__container-filter__menu__list-ingredients__ustensils, .menu-filter__container-filter__menu__list-appliance__ingredients, .menu-filter__container-filter__menu__list-appliance__appliance, .menu-filter__container-filter__menu__list-appliance__ustensils, .menu-filter__container-filter__menu__list-ustensils__ingredients, .menu-filter__container-filter__menu__list-ustensils__appliance, .menu-filter__container-filter__menu__list-ustensils__ustensils {
+.menu-filter__container-filter__menu__list-ingredients__ingredients, .menu-filter__container-filter__menu__list-ingredients__appliance, .menu-filter__container-filter__menu__list-ingredients__ustensils, .menu-filter__container-filter__menu__list-appareils__ingredients, .menu-filter__container-filter__menu__list-appareils__appliance, .menu-filter__container-filter__menu__list-appareils__ustensils, .menu-filter__container-filter__menu__list-ustensiles__ingredients, .menu-filter__container-filter__menu__list-ustensiles__appliance, .menu-filter__container-filter__menu__list-ustensiles__ustensils {
   display: flex;
   align-items: center;
   background-color: #FFF;

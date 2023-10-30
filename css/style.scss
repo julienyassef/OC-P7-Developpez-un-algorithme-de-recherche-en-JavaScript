@@ -116,7 +116,7 @@ body {
         gap: 63px;
         &__menu {
             width: 195px;
-            height: 500px;
+            max-height: 500px;
             display: flex;
             flex-direction: column;
             &__group { 
@@ -128,6 +128,20 @@ body {
                 background: #FFF;
                 border-radius: 11px;                
                 padding: 17px 16px 17px 16px;
+                cursor: pointer;
+
+                &.menu-clicked {
+                    img {
+                        transform: rotate(180deg);
+                    }
+                    &~form {
+                        display: block;
+                    }
+                    &~div {
+                        display: block;
+                    }
+                }
+
                 &__content{
                     margin: 0;
                     color: $CouleurPrimary;
@@ -140,8 +154,7 @@ body {
                     stroke: $CouleurPrimary;
                     width: 20px;
                     height: 12px;
-                    transform: rotate(180deg);
-                    cursor: pointer;
+                    transform: rotate(0deg);
                 }
             }
             & form {
@@ -150,6 +163,7 @@ body {
                 height: 50px;
                 border-radius: 0px 0px 11px 11px; 
                 padding: 13px 16px 13px 16px;
+                display: none;
             }
             & input {
                 width: 155px;
@@ -167,8 +181,9 @@ body {
                 padding: 0;
             }   
             &__list-ingredients,
-            &__list-appliance,
-            &__list-ustensils {
+            &__list-appareils,
+            &__list-ustensiles {
+                display: none;
                 width: 195px;
                 border-radius: 11px;
                 overflow-y: scroll;

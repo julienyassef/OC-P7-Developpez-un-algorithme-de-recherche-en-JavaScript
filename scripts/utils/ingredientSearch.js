@@ -4,10 +4,7 @@ import { saveData } from "./storage.js";
 import { displayRecipes } from "./dom.js";
 import { displayListIngredients } from "./dom.js";
 
-import { closeMenuIngredients } from "./filterMenu.js";
-
 import { createTag } from "./factories.js";
-
 
 export const ingredientSearch = () => {
   const ingredientInput = document.querySelector("#ingredientInput");
@@ -62,9 +59,10 @@ export const ingredientSearch = () => {
       } else {
         // click sur un ingredient restant pour créer un tag
         div.addEventListener("click", () => {
+          const menuClicked = document.querySelector(".menu-clicked");
+          console.log(menuClicked);
+          menuClicked.classList.remove("menu-clicked");
           sectionTag.appendChild(createTag(ingrédient));
-          closeMenuIngredients();
-       
         });
       }
     });
