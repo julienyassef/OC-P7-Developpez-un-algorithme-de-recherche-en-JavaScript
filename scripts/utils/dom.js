@@ -5,7 +5,6 @@ import {
   createlistUstensils,
 } from "./factories.js";
 
-import { searchBarHeader } from "../utils/search.js";
 
 export const countRecipe = (recipes) => {
   const countSection = document.querySelector(".menu-filter__recipe-count");
