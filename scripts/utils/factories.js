@@ -106,9 +106,11 @@ export const createTag = (element) => {
   
     const contentTag = document.createElement('div');
     contentTag.textContent = element;
+    contentTag.classList.add('tag__content');
   
     const svgTag = document.createElement('div');
     svgTag.innerHTML = '<img src="./assets/crossTag.svg" alt="SVG" />';
+    svgTag.classList.add('tag__cross');
   
     tag.appendChild(contentTag);
     tag.appendChild(svgTag);
