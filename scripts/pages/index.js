@@ -6,9 +6,11 @@ import { displayListIngredients } from "../utils/dom.js";
 import { displayListAppliance } from "../utils/dom.js";
 import { displayListUstensils } from "../utils/dom.js";
 
-import { openFilterMenus } from "../utils/filterMenu.js";
+import { toggleFilterMenus } from "../utils/filterMenu.js";
 
 import { ingredientSearch } from "../utils/ingredientSearch.js";
+
+import { handleIngredientsElementList } from "../utils/handleTags.js";
 
 const init = async () => {
   // data
@@ -17,11 +19,8 @@ const init = async () => {
 
   // gestionnaires affichages
   displayRecipes(recipes);
-  displayListIngredients(recipes);
-  displayListAppliance(recipes);
-  displayListUstensils(recipes);
 
-  openFilterMenus();
+  toggleFilterMenus();
 
   // gestionnaire des inputs
   ingredientSearch();

@@ -101,6 +101,8 @@ export const createlistUstensils = (ustensil) => {
 }
 
 export const createTag = (element) => {
+    const sectionTag = document.querySelector('.section-tag')
+
     const tag = document.createElement('div');
     tag.classList.add('tag');
   
@@ -114,7 +116,7 @@ export const createTag = (element) => {
   
     tag.appendChild(contentTag);
     tag.appendChild(svgTag);
-  
-    return tag;
+
+    sectionTag.appendChild(tag)
   }
   
