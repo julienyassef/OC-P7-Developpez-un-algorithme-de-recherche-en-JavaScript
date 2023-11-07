@@ -24,10 +24,10 @@ export const handleIngredientsElementList = () => {
           const recipeIngredients = recipe.ingredients
             .map((ingredients) => ingredients.ingredient.toLowerCase())
             .join(" ");
-
-          // comparer si value est dans le tableau d'ingrédient de la recette
-          if (recipeIngredients.search(value.toLowerCase()) === -1) {
-            recipe.display = false;
+            
+            // comparer si value est dans le tableau d'ingrédient de la recette
+            if (recipeIngredients.search(value.toLowerCase()) === -1) {
+                recipe.display = false; 
           }
         }
         return recipe;
@@ -45,3 +45,46 @@ export const handleIngredientsElementList = () => {
     });
   });
 };
+
+
+export const handleApplianceElementList = () => {
+    const divsAppliance = document.querySelectorAll(
+      ".menu-filter__container-filter__menu__list-appareils__appliance"
+    );
+    
+    divsAppliance.forEach((div) => {
+        div.addEventListener("click", () => {
+        // récupérer la valeur
+        const value = div.innerText.toLowerCase();
+        
+        // chercher les recettes qui ont value comme ingrédient
+        const recipes = getData();
+        
+        const filteredRecipes = recipes.map((recipe) => {
+            // regarder si y'a l'appaareil dans les recette qui sont display = true
+        if (recipe.display === true) {
+        const recipeAppliance = recipe.appliance.toLowerCase();
+
+            // comparer si value est dans le tableau de l'appareil de la recette
+            if (recipeAppliance.search(value.toLowerCase()) === -1) {
+                recipe.display = false;
+            }
+        }
+          return recipe;
+        });
+  
+        // fermer la dropdown
+        forceCloseFilterMenus();
+  
+        // crée un tag
+        createTag(value);
+  
+        // afficher les recettes
+        saveData(filteredRecipes);
+        displayRecipes(filteredRecipes);
+      });
+    });
+  };
+
+  
+  

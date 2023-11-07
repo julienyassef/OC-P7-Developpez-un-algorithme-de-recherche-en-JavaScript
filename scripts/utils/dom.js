@@ -6,6 +6,9 @@ import {
 } from "./factories.js";
 
 import { handleIngredientsElementList } from "./handleTags.js";
+import { handleApplianceElementList } from "./handleTags.js";
+
+
 
 export const countRecipe = (recipes) => {
   const countSection = document.querySelector(".menu-filter__recipe-count");
@@ -100,6 +103,8 @@ export const displayListAppliance = (recipes) => {
   uniqueAppliance.forEach((appliance) => {
     sectionListAppliance.appendChild(createlistAppliances(appliance));
   });
+
+  handleApplianceElementList ();
 };
 
 export const displayListUstensils = (recipes) => {
