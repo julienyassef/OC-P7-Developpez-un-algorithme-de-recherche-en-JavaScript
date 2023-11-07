@@ -7,6 +7,8 @@ import { createTag } from "./factories.js";
 
 import { pinIngredientsToTop } from "./factories.js";
 import { pinApplianceToTop } from "./factories.js";
+import { pinUstensilsToTop } from "./factories.js";
+
 
 export const handleIngredientsElementList = () => {
   const divsIngredients = document.querySelectorAll(
@@ -85,7 +87,7 @@ export const handleApplianceElementList = () => {
         // crée un tag
         createTag(value);
 
-         // fige a div ingrédients en haut de la list
+        // fige la div appliance en haut de la list
         pinApplianceToTop(value);
   
         // afficher les recettes
@@ -130,6 +132,9 @@ const divsUstensils = document.querySelectorAll(
 
         // crée un tag
         createTag(value);
+
+        // fige la div ustensils en haut de la list
+        pinUstensilsToTop(value);
 
         // afficher les recettes
         saveData(filteredRecipes);
