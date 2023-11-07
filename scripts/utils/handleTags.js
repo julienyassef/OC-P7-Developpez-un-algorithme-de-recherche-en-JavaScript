@@ -24,7 +24,7 @@ export const handleIngredientsElementList = () => {
           const recipeIngredients = recipe.ingredients
             .map((ingredients) => ingredients.ingredient.toLowerCase())
             .join(" ");
-            
+          
             // comparer si value est dans le tableau d'ingrédient de la recette
             if (recipeIngredients.search(value.toLowerCase()) === -1) {
                 recipe.display = false; 
@@ -45,7 +45,6 @@ export const handleIngredientsElementList = () => {
     });
   });
 };
-
 
 export const handleApplianceElementList = () => {
     const divsAppliance = document.querySelectorAll(
@@ -86,5 +85,45 @@ export const handleApplianceElementList = () => {
     });
   };
 
-  
-  
+export const handleUstensilsElementList = () => {
+const divsUstensils = document.querySelectorAll(
+    ".menu-filter__container-filter__menu__list-ustensiles__ustensils"
+);
+
+    divsUstensils.forEach((div) => {
+        div.addEventListener("click", () => {
+        // récupérer la valeur
+        const value = div.innerText.toLowerCase();
+        
+        // chercher les recettes qui ont value comme ustensil
+        const recipes = getData();
+        
+        const filteredRecipes = recipes.map((recipe) => {
+            // regarder si y'a ustensil dans les recette qui sont display = true
+            if (recipe.display === true) {
+                const recipeUstensils = recipe.ustensils
+                .map((appliance) => appliance.toLowerCase())
+                .join (" ");
+                console.log(recipeUstensils)
+                
+                
+                // comparer si value est dans le tableau ustensil  de la recette
+                if (recipeUstensils.search(value.toLowerCase()) === -1) {
+                    recipe.display = false; 
+            }
+            }
+            return recipe;
+        });
+
+        // fermer la dropdown
+        forceCloseFilterMenus();
+
+        // crée un tag
+        createTag(value);
+
+        // afficher les recettes
+        saveData(filteredRecipes);
+        displayRecipes(filteredRecipes);
+        });
+    });
+};

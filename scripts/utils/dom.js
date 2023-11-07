@@ -7,6 +7,7 @@ import {
 
 import { handleIngredientsElementList } from "./handleTags.js";
 import { handleApplianceElementList } from "./handleTags.js";
+import { handleUstensilsElementList } from "./handleTags.js";
 
 
 
@@ -136,4 +137,6 @@ export const displayListUstensils = (recipes) => {
   uniqueUstensil.forEach((ustensil) => {
     sectionListUstensils.appendChild(createlistUstensils(ustensil));
   });
+
+  handleUstensilsElementList();
 };
