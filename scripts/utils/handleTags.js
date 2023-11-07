@@ -35,6 +35,7 @@ export const handleIngredientsElementList = () => {
         return recipe;
       });
 
+    
       // fermer la dropdown
       forceCloseFilterMenus();
 
@@ -43,7 +44,6 @@ export const handleIngredientsElementList = () => {
 
       // fige a div ingrédients en haut de la list
       pinIngredientsToTop(value);
-
 
       // afficher les recettes
       saveData(filteredRecipes);

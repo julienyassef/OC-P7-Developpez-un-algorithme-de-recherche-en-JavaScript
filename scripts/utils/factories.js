@@ -124,10 +124,12 @@ export const createTag = (element) => {
 export const pinIngredientsToTop = (element) => {
     const sectionPin = document.querySelector('.menu-filter__container-filter__menu__section-pin-ingredients');
 
+    // mettre la première lettre en majuscule
+    const fisrtLettreMajElement = element.charAt(0).toUpperCase() + element.slice(1);
+
     const pinIngredients = document.createElement('div');
     pinIngredients.classList.add('menu-filter__container-filter__menu__section-pin-ingredients__pinElement');
-    pinIngredients.textContent = element;
-    console.log(sectionPin)
+    pinIngredients.textContent = fisrtLettreMajElement;
 
     sectionPin.appendChild(pinIngredients);
    
