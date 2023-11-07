@@ -133,5 +133,18 @@ export const pinIngredientsToTop = (element) => {
 
     sectionPin.appendChild(pinIngredients);
    
+}
 
+export const pinApplianceToTop = (element) => {
+    const sectionPin = document.querySelector('.menu-filter__container-filter__menu__section-pin-appliance');
+
+    // mettre la première lettre en majuscule
+    const fisrtLettreMajElement = element.charAt(0).toUpperCase() + element.slice(1);
+
+    const pinAppliance = document.createElement('div');
+    pinAppliance.classList.add('menu-filter__container-filter__menu__section-pin-ingredients__pinElement');
+    pinAppliance.textContent = fisrtLettreMajElement;
+
+    sectionPin.appendChild(pinAppliance);
+   
 }

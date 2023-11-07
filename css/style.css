@@ -138,12 +138,12 @@ body {
   cursor: pointer;
   padding: 0;
 }
-.menu-filter__container-filter__menu__section-pin-ingredients {
+.menu-filter__container-filter__menu__section-pin-ingredients, .menu-filter__container-filter__menu__section-pin-appliance {
   display: none;
   width: 195px;
   background-color: #FFD15B;
 }
-.menu-filter__container-filter__menu__section-pin-ingredients__pinElement {
+.menu-filter__container-filter__menu__section-pin-ingredients__pinElement, .menu-filter__container-filter__menu__section-pin-appliance__pinElement {
   display: flex;
   align-items: center;
   height: 32px;

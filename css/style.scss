@@ -192,7 +192,7 @@ body {
                 cursor: pointer; 
                 padding: 0;
             }
-            &__section-pin-ingredients {
+            &__section-pin-ingredients, &__section-pin-appliance {
                 display: none;
                 width: 195px;
                 background-color: #FFD15B;
