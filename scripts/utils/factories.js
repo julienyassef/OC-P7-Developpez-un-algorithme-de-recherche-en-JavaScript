@@ -101,7 +101,7 @@ export const createlistUstensils = (ustensil) => {
 }
 
 export const createTag = (element) => {
-    const sectionTag = document.querySelector('.section-tag')
+    const sectionTag = document.querySelector('.section-tag');
 
     const tag = document.createElement('div');
     tag.classList.add('tag');
@@ -117,6 +117,19 @@ export const createTag = (element) => {
     tag.appendChild(contentTag);
     tag.appendChild(svgTag);
 
-    sectionTag.appendChild(tag)
+    sectionTag.appendChild(tag);
   }
   
+
+export const pinIngredientsToTop = (element) => {
+    const sectionPin = document.querySelector('.menu-filter__container-filter__menu__section-pin-ingredients');
+
+    const pinIngredients = document.createElement('div');
+    pinIngredients.classList.add('menu-filter__container-filter__menu__section-pin-ingredients__pinElement');
+    pinIngredients.textContent = element;
+    console.log(sectionPin)
+
+    sectionPin.appendChild(pinIngredients);
+   
+
+}

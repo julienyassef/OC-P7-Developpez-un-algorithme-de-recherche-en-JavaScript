@@ -138,6 +138,24 @@ body {
   cursor: pointer;
   padding: 0;
 }
+.menu-filter__container-filter__menu__section-pin-ingredients {
+  display: none;
+  width: 195px;
+  background-color: #FFD15B;
+}
+.menu-filter__container-filter__menu__section-pin-ingredients__pinElement {
+  display: flex;
+  align-items: center;
+  height: 32px;
+  color: #1B1B1B;
+  font-family: Manrope;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding: 8px 16px 8px 16px;
+}
 .menu-filter__container-filter__menu__list-ingredients, .menu-filter__container-filter__menu__list-appareils, .menu-filter__container-filter__menu__list-ustensiles {
   display: none;
   width: 195px;

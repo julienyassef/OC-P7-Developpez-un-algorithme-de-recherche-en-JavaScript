@@ -5,6 +5,8 @@ import { displayRecipes } from "./dom.js";
 import { forceCloseFilterMenus } from "./filterMenu.js";
 import { createTag } from "./factories.js";
 
+import { pinIngredientsToTop } from "./factories.js";
+
 export const handleIngredientsElementList = () => {
   const divsIngredients = document.querySelectorAll(
     ".menu-filter__container-filter__menu__list-ingredients__ingredients"
@@ -38,6 +40,10 @@ export const handleIngredientsElementList = () => {
 
       // crée un tag
       createTag(value);
+
+      // fige a div ingrédients en haut de la list
+      pinIngredientsToTop(value);
+
 
       // afficher les recettes
       saveData(filteredRecipes);

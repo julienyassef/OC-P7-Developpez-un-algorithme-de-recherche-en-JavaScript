@@ -26,6 +26,20 @@ $familyFontText: manrope;
     padding: 8px 16px 8px 16px;
   }
 
+@mixin pinElement {
+    display: flex;
+    align-items: center;
+    height: 32px;
+    color: $CouleurPrimary;
+    font-family: Manrope;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding: 8px 16px 8px 16px;
+}
+
 
 /// ================
 /// général
@@ -177,6 +191,14 @@ body {
                 top: 25px;
                 cursor: pointer; 
                 padding: 0;
+            }
+            &__section-pin-ingredients {
+                display: none;
+                width: 195px;
+                background-color: #FFD15B;
+                &__pinElement{
+                    @include pinElement; 
+                }
             }   
             &__list-ingredients,
             &__list-appareils,
