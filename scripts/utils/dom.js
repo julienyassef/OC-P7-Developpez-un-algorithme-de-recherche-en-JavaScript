@@ -9,6 +9,8 @@ import { handleIngredientsElementList } from "./handleTags.js";
 import { handleApplianceElementList } from "./handleTags.js";
 import { handleUstensilsElementList } from "./handleTags.js";
 
+import { ingredientSearch } from "./ingredientSearch.js";
+
 
 
 export const countRecipe = (recipes) => {
@@ -66,6 +68,9 @@ export const displayListIngredients = (recipes) => {
   uniqueIngredients.forEach((ingredientName) => {
     sectionListIngredients.appendChild(createlistIngredients(ingredientName));
   });
+
+
+  ingredientSearch();
 
   handleIngredientsElementList();
 

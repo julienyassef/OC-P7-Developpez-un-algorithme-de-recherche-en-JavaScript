@@ -2,6 +2,7 @@
 import { getData } from "./storage.js";
 import { saveData } from "./storage.js";
 import { displayRecipes } from "./dom.js";
+
 import { forceCloseFilterMenus } from "./filterMenu.js";
 import { createTag } from "./factories.js";
 

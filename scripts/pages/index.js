@@ -5,10 +5,6 @@ import { displayRecipes } from "../utils/dom.js";
 
 import { toggleFilterMenus } from "../utils/filterMenu.js";
 
-import { ingredientSearch } from "../utils/ingredientSearch.js";
-
-
-
 const init = async () => {
   // data
   const recipes = await getExternalData();
@@ -19,7 +15,5 @@ const init = async () => {
 
   toggleFilterMenus();
 
-  // gestionnaire des inputs
-  ingredientSearch();
 };
 init();
