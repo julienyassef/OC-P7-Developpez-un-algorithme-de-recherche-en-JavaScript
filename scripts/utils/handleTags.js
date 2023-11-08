@@ -117,8 +117,6 @@ const divsUstensils = document.querySelectorAll(
                 const recipeUstensils = recipe.ustensils
                 .map((appliance) => appliance.toLowerCase())
                 .join (" ");
-                console.log(recipeUstensils)
-                
                 
                 // comparer si value est dans le tableau ustensil  de la recette
                 if (recipeUstensils.search(value.toLowerCase()) === -1) {

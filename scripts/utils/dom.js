@@ -152,8 +152,15 @@ export const displayListUstensils = (recipes) => {
   //trier le tableau par ordre alphabétiques et retire les doublons
   const uniqueUstensil = [...new Set(listUstensils)].sort();
 
+
+  const divPinUstensils = document.querySelectorAll('.menu-filter__container-filter__menu__section-pin-ustensils__pinElement');
+  const pinUstensils = Array.from(divPinUstensils).map((element) => element.textContent);
+  
+  // ajoute les elements uniques à la list et vérifie qu'il n'est pas affiché en haut en mode figer
   uniqueUstensil.forEach((ustensil) => {
-    sectionListUstensils.appendChild(createlistUstensils(ustensil));
+    if (!pinUstensils.includes(ustensil)) {
+      sectionListUstensils.appendChild(createlistUstensils(ustensil));
+    }
   });
 
   handleUstensilsElementList();

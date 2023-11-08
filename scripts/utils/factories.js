@@ -118,8 +118,7 @@ export const createTag = (element) => {
     tag.appendChild(svgTag);
 
     sectionTag.appendChild(tag);
-  }
-  
+  } 
 
 export const pinIngredientsToTop = (element) => {
     const sectionPin = document.querySelector('.menu-filter__container-filter__menu__section-pin-ingredients');
