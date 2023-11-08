@@ -53,6 +53,8 @@ export const displayListIngredients = (recipes) => {
       // Ajoutez les noms d'ingrédients à la liste
       listIngredients = listIngredients.concat(dataIngredients);
 
+     
+
       for (let i = 0; i < listIngredients.length; i++) {
         listIngredients[i] = listIngredients[i].toLowerCase();
 
@@ -63,8 +65,11 @@ export const displayListIngredients = (recipes) => {
       }
     }
   }
-  //trier le tableau par ordre alphabétiques et retire les doublons
-  const uniqueIngredients = [...new Set(listIngredients)].sort();
+  //trier le tableau par ordre alphabétiques et retire les doublons (localeCompare : pour éviter les lettres avec accents à la fin de la liste)
+  const uniqueIngredients = [...new Set(listIngredients)].sort((a, b) => a.localeCompare(b, undefined, { sensitivity: "base" }));
+ 
+
+  console.log(uniqueIngredients)
 
   const divPinIngredients = document.querySelectorAll('.menu-filter__container-filter__menu__section-pin-ingredients__pinElement');
   const pinIngredients = Array.from(divPinIngredients).map((element) => element.textContent);
@@ -110,8 +115,10 @@ export const displayListAppliance = (recipes) => {
     }
   }
 
-  //trier le tableau par ordre alphabétiques et retire les doublons
-  const uniqueAppliance = [...new Set(listAppliance)].sort();
+
+  //trier le tableau par ordre alphabétiques et retire les doublons (localeCompare : pour éviter les lettres avec accents à la fin de la liste)
+  const uniqueAppliance = [...new Set(listAppliance)].sort((a, b) => a.localeCompare(b, undefined, { sensitivity: "base" }));
+ 
 
   const divPinAppliance = document.querySelectorAll('.menu-filter__container-filter__menu__section-pin-appliance__pinElement');
   const pinAppliance = Array.from(divPinAppliance).map((element) => element.textContent);
@@ -149,9 +156,8 @@ export const displayListUstensils = (recipes) => {
       }
     }
   }
-  //trier le tableau par ordre alphabétiques et retire les doublons
-  const uniqueUstensil = [...new Set(listUstensils)].sort();
-
+ //trier le tableau par ordre alphabétiques et retire les doublons (localeCompare : pour éviter les lettres avec accents à la fin de la liste)
+ const uniqueUstensil = [...new Set(listUstensils)].sort((a, b) => a.localeCompare(b, undefined, { sensitivity: "base" }));
 
   const divPinUstensils = document.querySelectorAll('.menu-filter__container-filter__menu__section-pin-ustensils__pinElement');
   const pinUstensils = Array.from(divPinUstensils).map((element) => element.textContent);
