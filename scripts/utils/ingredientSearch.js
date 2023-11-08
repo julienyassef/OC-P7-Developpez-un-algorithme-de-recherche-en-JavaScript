@@ -1,6 +1,8 @@
 import { getData } from "./storage.js";
 import { saveData } from "./storage.js";
 
+import { displayRecipes } from "./dom.js";
+
 
 
 
@@ -62,6 +64,7 @@ export const ingredientSearch = () => {
     
     
     saveData(filteredRecipes);
+
   
   });
 

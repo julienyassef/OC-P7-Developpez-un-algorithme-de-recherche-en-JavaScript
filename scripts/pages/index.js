@@ -5,6 +5,7 @@ import { displayRecipes } from "../utils/dom.js";
 
 import { toggleFilterMenus } from "../utils/filterMenu.js";
 
+
 const init = async () => {
   // data
   const recipes = await getExternalData();

@@ -13,6 +13,7 @@ import { ingredientSearch } from "./ingredientSearch.js";
 
 
 
+
 export const countRecipe = (recipes) => {
   const countSection = document.querySelector(".menu-filter__recipe-count");
   let countRecipes = recipes.filter((recipe) => recipe.display === true).length;
@@ -29,9 +30,9 @@ export const displayRecipes = (recipes) => {
     }
   });
 
-  displayListIngredients(recipes);
   displayListAppliance(recipes);
   displayListUstensils(recipes);
+  displayListIngredients(recipes);
 
 };
 
@@ -65,8 +66,14 @@ export const displayListIngredients = (recipes) => {
   //trier le tableau par ordre alphabétiques et retire les doublons
   const uniqueIngredients = [...new Set(listIngredients)].sort();
 
+  const divPinIngredients = document.querySelectorAll('.menu-filter__container-filter__menu__section-pin-ingredients__pinElement');
+  const pinIngredients = Array.from(divPinIngredients).map((element) => element.textContent);
+  
+  // ajoute les elements uniques à la list et vérifie qu'il n'est pas affiché en haut en mode figer
   uniqueIngredients.forEach((ingredientName) => {
-    sectionListIngredients.appendChild(createlistIngredients(ingredientName));
+    if (!pinIngredients.includes(ingredientName)) {
+      sectionListIngredients.appendChild(createlistIngredients(ingredientName));
+    }
   });
 
 
