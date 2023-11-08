@@ -20,28 +20,28 @@ export const ingredientSearch = () => {
     listIngrédientsDiv.push(div.textContent);
   });
   
-  
   // ====== réalise le tri des recettes par rapport à ce qui est entré dans l'input===========
   ingredientInput.addEventListener("input", (event) => {
     const value = event.target.value;
     const recipes = getData();
     
+    console.log(value)
     if (value.length < 3) return;
     
-    const filteredRecipes = recipes.map((recipe) => {
-      // regarder si y'a l'ingrédient dans les recette qui sont display = true
-      if (recipe.display === true) {
-        const recipeIngredients = recipe.ingredients
-        .map((ingredients) => ingredients.ingredient.toLowerCase())
-        .join(" ");
+    // const filteredRecipes = recipes.map((recipe) => {
+    //   // regarder si y'a l'ingrédient dans les recette qui sont display = true
+    //   if (recipe.display === true) {
+    //     const recipeIngredients = recipe.ingredients
+    //     .map((ingredients) => ingredients.ingredient.toLowerCase())
+    //     .join(" ");
         
-        // comparer si value est dans le tableau d'ingrédient de la recette
-        if (recipeIngredients.search(value.toLowerCase()) === -1) {
-          recipe.display = false;
-        }
-      }
-      return recipe;
-    });
+    //     // comparer si value est dans le tableau d'ingrédient de la recette
+    //     if (recipeIngredients.search(value.toLowerCase()) === -1) {
+    //       recipe.display = false;
+    //     }
+    //   }
+    //   return recipe;
+    // });
   
     
     // ====== Sélection l'ingrédient  ===========
@@ -59,13 +59,12 @@ export const ingredientSearch = () => {
         div.classList.add("display-none");
       }  
       
-      
     });
     
     
-    saveData(filteredRecipes);
-
+    // saveData(filteredRecipes);
   
+
   });
 
 
