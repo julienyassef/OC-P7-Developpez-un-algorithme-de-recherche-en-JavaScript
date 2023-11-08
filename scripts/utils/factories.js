@@ -142,7 +142,7 @@ export const pinApplianceToTop = (element) => {
     const fisrtLettreMajElement = element.charAt(0).toUpperCase() + element.slice(1);
 
     const pinAppliance = document.createElement('div');
-    pinAppliance.classList.add('menu-filter__container-filter__menu__section-pin-ingredients__pinElement');
+    pinAppliance.classList.add('menu-filter__container-filter__menu__section-pin-appliance__pinElement');
     pinAppliance.textContent = fisrtLettreMajElement;
 
     sectionPin.appendChild(pinAppliance);
@@ -156,7 +156,7 @@ export const pinUstensilsToTop = (element) => {
     const fisrtLettreMajElement = element.charAt(0).toUpperCase() + element.slice(1);
 
     const pinUstensils = document.createElement('div');
-    pinUstensils.classList.add('menu-filter__container-filter__menu__section-pin-ingredients__pinElement');
+    pinUstensils.classList.add('menu-filter__container-filter__menu__section-pin-ustensils__pinElement');
     pinUstensils.textContent = fisrtLettreMajElement;
 
     sectionPin.appendChild(pinUstensils);

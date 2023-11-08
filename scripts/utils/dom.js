@@ -113,10 +113,16 @@ export const displayListAppliance = (recipes) => {
   //trier le tableau par ordre alphabétiques et retire les doublons
   const uniqueAppliance = [...new Set(listAppliance)].sort();
 
+  const divPinAppliance = document.querySelectorAll('.menu-filter__container-filter__menu__section-pin-appliance__pinElement');
+  const pinAppliance = Array.from(divPinAppliance).map((element) => element.textContent);
+  
+  // ajoute les elements uniques à la list et vérifie qu'il n'est pas affiché en haut en mode figer
   uniqueAppliance.forEach((appliance) => {
-    sectionListAppliance.appendChild(createlistAppliances(appliance));
+    if (!pinAppliance.includes(appliance)) {
+      sectionListAppliance.appendChild(createlistAppliances(appliance));
+    }
   });
-
+ 
   handleApplianceElementList ();
 };
 
