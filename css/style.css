@@ -92,6 +92,9 @@ body {
   padding: 17px 16px 17px 16px;
   cursor: pointer;
 }
+.menu-filter__container-filter__menu__group.menu-clicked {
+  border-radius: 11px 11px 0px 0px;
+}
 .menu-filter__container-filter__menu__group.menu-clicked img {
   transform: rotate(180deg);
 }
@@ -119,7 +122,6 @@ body {
   position: relative;
   background: #FFF;
   height: 50px;
-  border-radius: 0px 0px 11px 11px;
   padding: 13px 16px 13px 16px;
   display: none;
 }
@@ -160,7 +162,7 @@ body {
 .menu-filter__container-filter__menu__list-ingredients, .menu-filter__container-filter__menu__list-appareils, .menu-filter__container-filter__menu__list-ustensiles {
   display: none;
   width: 195px;
-  border-radius: 11px;
+  border-radius: 0px 0px 11px 11px;
   overflow-y: scroll;
 }
 .menu-filter__container-filter__menu__list-ingredients__ingredients, .menu-filter__container-filter__menu__list-ingredients__appliance, .menu-filter__container-filter__menu__list-ingredients__ustensils, .menu-filter__container-filter__menu__list-appareils__ingredients, .menu-filter__container-filter__menu__list-appareils__appliance, .menu-filter__container-filter__menu__list-appareils__ustensils, .menu-filter__container-filter__menu__list-ustensiles__ingredients, .menu-filter__container-filter__menu__list-ustensiles__appliance, .menu-filter__container-filter__menu__list-ustensiles__ustensils {

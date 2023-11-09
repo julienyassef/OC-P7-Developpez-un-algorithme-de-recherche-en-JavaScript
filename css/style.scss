@@ -146,6 +146,7 @@ body {
                 padding: 17px 16px 17px 16px;
                 cursor: pointer;
                 &.menu-clicked {
+                    border-radius: 11px 11px 0px 0px; 
                     img {
                         transform: rotate(180deg);
                     }
@@ -175,7 +176,6 @@ body {
                 position: relative;
                 background: #FFF;
                 height: 50px;
-                border-radius: 0px 0px 11px 11px; 
                 padding: 13px 16px 13px 16px;
                 display: none;
             }
@@ -209,7 +209,7 @@ body {
             &__list-ustensiles {
                 display: none;
                 width: 195px;
-                border-radius: 11px;
+                border-radius: 0px 0px 11px 11px;
                 overflow-y: scroll;
                 &__ingredients,
                 &__appliance,
