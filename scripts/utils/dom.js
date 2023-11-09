@@ -67,9 +67,6 @@ export const displayListIngredients = (recipes) => {
   }
   //trier le tableau par ordre alphabétiques et retire les doublons (localeCompare : pour éviter les lettres avec accents à la fin de la liste)
   const uniqueIngredients = [...new Set(listIngredients)].sort((a, b) => a.localeCompare(b, undefined, { sensitivity: "base" }));
- 
-
-  console.log(uniqueIngredients)
 
   const divPinIngredients = document.querySelectorAll('.menu-filter__container-filter__menu__section-pin-ingredients__pinElement');
   const pinIngredients = Array.from(divPinIngredients).map((element) => element.textContent);
