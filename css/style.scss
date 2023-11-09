@@ -122,6 +122,7 @@ body {
     }
 }
 
+
 /// ================
 /// card recipe
 /// ================
@@ -332,10 +333,11 @@ body {
         }
  }
  
-    /// ================
-    /// Tag
-/   // ================
+/// ================
+/// Tag
+/// ================
 
+ 
  .section-tag {
     display: flex;
     flex-wrap: wrap;
@@ -346,22 +348,27 @@ body {
 
 .tag {
     position: relative;
+    display: flex; 
     width: 203px;
     height: 32px;
     background-color: $CouleurTertiary;
-    color: $CouleurPrimary;
-    font-family: Manrope;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    display: flex;
     justify-content: space-between;
     padding: 17px 18px;
     align-items: center;
     gap: 60px;
     border-radius: 10px ;
+    &__content{
+        color: $CouleurPrimary;
+        font-family: Manrope;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+    }
+    &__cross {
+        cursor: pointer;
+    }
   }
-
+ 
 .border-Menu-tag-select {
     border-color: $CouleurTertiary;
 }

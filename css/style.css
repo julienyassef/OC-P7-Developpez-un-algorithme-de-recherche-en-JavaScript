@@ -12,6 +12,10 @@ body {
   gap: 50px;
 }
 
+.display-none {
+  display: none;
+}
+
 .header {
   position: relative;
   background-image: url(../assets/lampos-aritonang-24gR_9lCdes-unsplash\ 1.png);
@@ -63,6 +67,96 @@ body {
   width: 52px;
   height: 52px;
   cursor: pointer;
+}
+
+.recipe-card {
+  position: relative;
+  background: #FFF;
+  width: 100%;
+  height: 731px;
+  border-radius: 21px;
+  box-shadow: 0px 4px 34px 30px rgba(0, 0, 0, 0.04);
+}
+.recipe-card__image {
+  width: 100%;
+  height: 253px;
+  border-radius: 21px 21px 0px 0px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.recipe-card__container {
+  margin: 32px 25px 61px 25px;
+}
+.recipe-card__container h2 {
+  color: #1B1B1B;
+  font-family: Anton;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 1.08px;
+  text-transform: uppercase;
+  margin-bottom: 32px;
+}
+.recipe-card__container__description h3 {
+  color: #7A7A7A;
+  font-family: Manrope;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 1.08px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.recipe-card__container__description__recipe {
+  color: #1B1B1B;
+  font-family: Manrope;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 32px;
+  text-align: justify;
+  max-height: 76px;
+  overflow: auto;
+}
+.recipe-card__container__description__ingredients {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.recipe-card__container__description__ingredients__container__name {
+  color: #1B1B1B;
+  font-family: Manrope;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+}
+.recipe-card__container__description__ingredients__container__description {
+  color: #7A7A7A;
+  font-family: Manrope;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+}
+.recipe-card__time-container {
+  position: absolute;
+  top: 21px;
+  right: 22px;
+  background-color: #FFD15B;
+  width: 33px;
+  height: 16px;
+  border-radius: 8px;
+  padding: 5px 15px;
+  justify-content: center;
+  align-items: center;
+}
+.recipe-card__time-container__time {
+  color: #1B1B1B;
+  text-align: center;
+  font-family: Manrope;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
 }
 
 .menu-filter {
@@ -190,10 +284,6 @@ body {
   font-weight: 400;
 }
 
-.display-none {
-  display: none;
-}
-
 .section-tag {
   display: flex;
   flex-wrap: wrap;
@@ -203,116 +293,27 @@ body {
 
 .tag {
   position: relative;
+  display: flex;
   width: 203px;
   height: 32px;
   background-color: #FFD15B;
-  color: #1B1B1B;
-  font-family: Manrope;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  display: flex;
   justify-content: space-between;
   padding: 17px 18px;
   align-items: center;
   gap: 60px;
   border-radius: 10px;
 }
+.tag__content {
+  color: #1B1B1B;
+  font-family: Manrope;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+}
+.tag__cross {
+  cursor: pointer;
+}
 
 .border-Menu-tag-select {
   border-color: #FFD15B;
-}
-
-.rotate-arrow {
-  transform: rotate(0deg);
-}
-
-.recipe-card {
-  position: relative;
-  background: #FFF;
-  width: 100%;
-  height: 731px;
-  border-radius: 21px;
-  box-shadow: 0px 4px 34px 30px rgba(0, 0, 0, 0.04);
-}
-.recipe-card__image {
-  width: 100%;
-  height: 253px;
-  border-radius: 21px 21px 0px 0px;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-.recipe-card__container {
-  margin: 32px 25px 61px 25px;
-}
-.recipe-card__container h2 {
-  color: #1B1B1B;
-  font-family: Anton;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  letter-spacing: 1.08px;
-  text-transform: uppercase;
-  margin-bottom: 32px;
-}
-.recipe-card__container__description h3 {
-  color: #7A7A7A;
-  font-family: Manrope;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 700;
-  letter-spacing: 1.08px;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-}
-.recipe-card__container__description__recipe {
-  color: #1B1B1B;
-  font-family: Manrope;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  margin-bottom: 32px;
-  text-align: justify;
-  max-height: 76px;
-  overflow: auto;
-}
-.recipe-card__container__description__ingredients {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-}
-.recipe-card__container__description__ingredients__container__name {
-  color: #1B1B1B;
-  font-family: Manrope;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 500;
-}
-.recipe-card__container__description__ingredients__container__description {
-  color: #7A7A7A;
-  font-family: Manrope;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-}
-.recipe-card__time-container {
-  position: absolute;
-  top: 21px;
-  right: 22px;
-  background-color: #FFD15B;
-  width: 33px;
-  height: 16px;
-  border-radius: 8px;
-  padding: 5px 15px;
-  justify-content: center;
-  align-items: center;
-}
-.recipe-card__time-container__time {
-  color: #1B1B1B;
-  text-align: center;
-  font-family: Manrope;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
 }/*# sourceMappingURL=style.css.map */

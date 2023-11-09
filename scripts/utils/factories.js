@@ -107,7 +107,7 @@ export const createTag = (element) => {
     const tag = document.createElement('div');
     tag.classList.add('tag');
   
-    const contentTag = document.createElement('div');
+    const contentTag = document.createElement('p');
     contentTag.textContent = element;
     contentTag.classList.add('tag__content');
   
