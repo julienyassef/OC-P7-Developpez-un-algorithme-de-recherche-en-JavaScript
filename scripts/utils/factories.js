@@ -1,3 +1,5 @@
+import { tagDeletionManagement } from "./tagdeletionManagement.js";
+
 
 export const createRecipeCard = (recipe) => {
     const recipeCard = document.createElement('article');
@@ -114,6 +116,10 @@ export const createTag = (element) => {
     const svgTag = document.createElement('div');
     svgTag.innerHTML = '<img src="./assets/crossTag.svg" alt="SVG" />';
     svgTag.classList.add('tag__cross');
+
+    svgTag.addEventListener('click', () => {
+        tagDeletionManagement(tag);
+    });
   
     tag.appendChild(contentTag);
     tag.appendChild(svgTag);
