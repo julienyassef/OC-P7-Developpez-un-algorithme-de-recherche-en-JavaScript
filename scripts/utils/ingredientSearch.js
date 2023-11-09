@@ -3,6 +3,7 @@ import { saveData } from "./storage.js";
 
 import { displayRecipes } from "./dom.js";
 
+
 export const ingredientSearch = () => {
   const ingredientInput = document.querySelector("#ingredientInput");
   const recipes = getData();
@@ -63,5 +64,6 @@ export const ingredientSearch = () => {
     //   }
     //   return recipe;
     // });
+    // displayRecipes(filteredRecipes);
   });
 };

@@ -32,7 +32,7 @@ export const displayRecipes = (recipes) => {
 
   displayListAppliance(recipes);
   displayListUstensils(recipes);
-  displayListIngredients(recipes);
+  displayListIngredients(recipes)
 
 };
 

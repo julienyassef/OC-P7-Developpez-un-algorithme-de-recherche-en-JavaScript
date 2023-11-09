@@ -61,6 +61,10 @@ body {
     gap: 50px;  
 }
 
+.display-none{
+    display: none;
+ }
+
 /// ================
 /// Header
 /// ================
@@ -114,6 +118,104 @@ body {
             width: 52px;
             height: 52px;
             cursor: pointer;
+        }
+    }
+}
+
+/// ================
+/// card recipe
+/// ================
+
+.recipe-card {
+    position: relative;
+    background: #FFF;
+    width: 100%;
+    height: 731px; 
+    border-radius: 21px;
+    box-shadow: 0px 4px 34px 30px rgba(0, 0, 0, 0.04);
+    &__image{
+        width: 100%;
+        height: 253px; 
+        border-radius: 21px 21px 0px 0px;
+        object-fit: cover;
+    }   
+    &__container {
+        margin: 32px 25px 61px 25px;
+        h2 {
+            color: $CouleurPrimary;
+            font-family: Anton;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 400;
+            letter-spacing: 1.08px;
+            text-transform: uppercase;
+            margin-bottom: 32px;
+            
+        }
+        &__description {
+            h3 {
+                color: $CouleurSecondary;
+                font-family: Manrope;
+                font-size: 12px;
+                font-style: normal;
+                font-weight: 700;
+                letter-spacing: 1.08px;
+                text-transform: uppercase;
+                margin-bottom: 20px;
+            }
+            &__recipe {
+                color: $CouleurPrimary;
+                font-family: Manrope;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+                margin-bottom: 32px;
+                text-align: justify;
+                max-height: 76px;
+                overflow: auto;
+            }
+            &__ingredients {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+                &__container {
+                    &__name {
+                        color: $CouleurPrimary;
+                        font-family: Manrope;
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 500;
+                    }
+                    &__description {
+                        color: $CouleurSecondary;
+                        font-family: Manrope;
+                        font-size: 14px;
+                        font-style: normal;
+                        font-weight: 400;
+                    }
+                }
+            }
+        }
+    }
+    &__time-container {
+        position: absolute;
+        top: 21px;
+        right: 22px;
+        background-color: $CouleurTertiary;
+        width: 33px;
+        height: 16px;
+        border-radius: 8px;
+        padding: 5px 15px;
+        justify-content: center;
+        align-items: center;
+        &__time {
+            color: $CouleurPrimary;
+            text-align: center;
+            font-family: Manrope;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 400;
         }
     }
 }
@@ -230,10 +332,10 @@ body {
         }
  }
  
+    /// ================
+    /// Tag
+/   // ================
 
- .display-none{
-    display: none;
- }
  .section-tag {
     display: flex;
     flex-wrap: wrap;
@@ -262,106 +364,4 @@ body {
 
 .border-Menu-tag-select {
     border-color: $CouleurTertiary;
-}
-
- .rotate-arrow {
-    transform: rotate(0deg);
- }
-
-/// ================
-/// card recipe
-/// ================
-
-.recipe-card {
-    position: relative;
-    background: #FFF;
-    width: 100%;
-    height: 731px; 
-    border-radius: 21px;
-    box-shadow: 0px 4px 34px 30px rgba(0, 0, 0, 0.04);
-    &__image{
-        width: 100%;
-        height: 253px; 
-        border-radius: 21px 21px 0px 0px;
-        object-fit: cover;
-    }   
-    &__container {
-        margin: 32px 25px 61px 25px;
-        h2 {
-            color: $CouleurPrimary;
-            font-family: Anton;
-            font-size: 18px;
-            font-style: normal;
-            font-weight: 400;
-            letter-spacing: 1.08px;
-            text-transform: uppercase;
-            margin-bottom: 32px;
-            
-        }
-        &__description {
-            h3 {
-                color: $CouleurSecondary;
-                font-family: Manrope;
-                font-size: 12px;
-                font-style: normal;
-                font-weight: 700;
-                letter-spacing: 1.08px;
-                text-transform: uppercase;
-                margin-bottom: 20px;
-            }
-            &__recipe {
-                color: $CouleurPrimary;
-                font-family: Manrope;
-                font-size: 14px;
-                font-style: normal;
-                font-weight: 400;
-                line-height: normal;
-                margin-bottom: 32px;
-                text-align: justify;
-                max-height: 76px;
-                overflow: auto;
-            }
-            &__ingredients {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 20px;
-                &__container {
-                    &__name {
-                        color: $CouleurPrimary;
-                        font-family: Manrope;
-                        font-size: 14px;
-                        font-style: normal;
-                        font-weight: 500;
-                    }
-                    &__description {
-                        color: $CouleurSecondary;
-                        font-family: Manrope;
-                        font-size: 14px;
-                        font-style: normal;
-                        font-weight: 400;
-                    }
-                }
-            }
-        }
-    }
-    &__time-container {
-        position: absolute;
-        top: 21px;
-        right: 22px;
-        background-color: $CouleurTertiary;
-        width: 33px;
-        height: 16px;
-        border-radius: 8px;
-        padding: 5px 15px;
-        justify-content: center;
-        align-items: center;
-        &__time {
-            color: $CouleurPrimary;
-            text-align: center;
-            font-family: Manrope;
-            font-size: 12px;
-            font-style: normal;
-            font-weight: 400;
-        }
-    }
 }
