@@ -1,7 +1,10 @@
+import { tagDeletionManagement } from "./tagdeletionManagement.js";
+
 
 export const createRecipeCard = (recipe) => {
     const recipeCard = document.createElement('article');
     recipeCard.classList.add('recipe-card');
+    recipeCard.id = `recipe-${recipe.id}`;
 
     const timeContainer = document.createElement('div');
     timeContainer.classList.add('recipe-card__time-container');
@@ -101,18 +104,67 @@ export const createlistUstensils = (ustensil) => {
 }
 
 export const createTag = (element) => {
+    const sectionTag = document.querySelector('.section-tag');
+
     const tag = document.createElement('div');
     tag.classList.add('tag');
   
-    const contentTag = document.createElement('div');
+    const contentTag = document.createElement('p');
     contentTag.textContent = element;
+    contentTag.classList.add('tag__content');
   
     const svgTag = document.createElement('div');
     svgTag.innerHTML = '<img src="./assets/crossTag.svg" alt="SVG" />';
+    svgTag.classList.add('tag__cross');
+
+    svgTag.addEventListener('click', () => {
+        tagDeletionManagement(tag);
+    });
   
     tag.appendChild(contentTag);
     tag.appendChild(svgTag);
-  
-    return tag;
-  }
-  
+
+    sectionTag.appendChild(tag);
+  } 
+
+export const pinIngredientsToTop = (element) => {
+    const sectionPin = document.querySelector('.menu-filter__container-filter__menu__section-pin-ingredients');
+
+    // mettre la première lettre en majuscule
+    const fisrtLettreMajElement = element.charAt(0).toUpperCase() + element.slice(1);
+
+    const pinIngredients = document.createElement('div');
+    pinIngredients.classList.add('menu-filter__container-filter__menu__section-pin-ingredients__pinElement');
+    pinIngredients.textContent = fisrtLettreMajElement;
+
+    sectionPin.appendChild(pinIngredients);
+   
+}
+
+export const pinApplianceToTop = (element) => {
+    const sectionPin = document.querySelector('.menu-filter__container-filter__menu__section-pin-appliance');
+
+    // mettre la première lettre en majuscule
+    const fisrtLettreMajElement = element.charAt(0).toUpperCase() + element.slice(1);
+
+    const pinAppliance = document.createElement('div');
+    pinAppliance.classList.add('menu-filter__container-filter__menu__section-pin-appliance__pinElement');
+    pinAppliance.textContent = fisrtLettreMajElement;
+
+    sectionPin.appendChild(pinAppliance);
+   
+}
+
+export const pinUstensilsToTop = (element) => {
+    const sectionPin = document.querySelector('.menu-filter__container-filter__menu__section-pin-ustensils');
+
+    // mettre la première lettre en majuscule
+    const fisrtLettreMajElement = element.charAt(0).toUpperCase() + element.slice(1);
+
+    const pinUstensils = document.createElement('div');
+    pinUstensils.classList.add('menu-filter__container-filter__menu__section-pin-ustensils__pinElement');
+    pinUstensils.textContent = fisrtLettreMajElement;
+
+    sectionPin.appendChild(pinUstensils);
+   
+}

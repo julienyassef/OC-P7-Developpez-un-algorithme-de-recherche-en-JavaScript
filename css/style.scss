@@ -21,10 +21,26 @@ $familyFontText: manrope;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
+    overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
     padding: 8px 16px 8px 16px;
   }
+
+@mixin pinElement {
+    display: flex;
+    align-items: center;
+    height: 32px;
+    color: $CouleurPrimary;
+    font-family: Manrope;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding: 8px 16px 8px 16px;
+}
 
 
 /// ================
@@ -44,6 +60,10 @@ body {
     grid-template-columns: repeat(3, 1fr);
     gap: 50px;  
 }
+
+.display-none{
+    display: none;
+ }
 
 /// ================
 /// Header
@@ -102,151 +122,6 @@ body {
     }
 }
 
-/// ================
-/// menu filter 
-/// ================
-
- .menu-filter {
-    display: flex;
-    justify-content: space-between;
-    margin: 40px 102px;
-    &__container-filter {
-        position: relative;
-        display: flex;
-        gap: 63px;
-        &__menu {
-            width: 195px;
-            max-height: 500px;
-            display: flex;
-            flex-direction: column;
-            &__group { 
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                justify-content: space-between;
-                height: 56px;
-                background: #FFF;
-                border-radius: 11px;                
-                padding: 17px 16px 17px 16px;
-                cursor: pointer;
-
-                &.menu-clicked {
-                    img {
-                        transform: rotate(180deg);
-                    }
-                    &~form {
-                        display: block;
-                    }
-                    &~div {
-                        display: block;
-                    }
-                }
-
-                &__content{
-                    margin: 0;
-                    color: $CouleurPrimary;
-                    font-family: Manrope;
-                    font-size: 16px;
-                    font-style: normal;
-                    font-weight: 500;
-                }
-                &__arrow {
-                    stroke: $CouleurPrimary;
-                    width: 20px;
-                    height: 12px;
-                    transform: rotate(0deg);
-                }
-            }
-            & form {
-                position: relative;
-                background: #FFF;
-                height: 50px;
-                border-radius: 0px 0px 11px 11px; 
-                padding: 13px 16px 13px 16px;
-                display: none;
-            }
-            & input {
-                width: 155px;
-                height: 40px;
-                border-radius: 2px;
-                border: 1.5px solid #c6c6c6;
-            }
-            & button {
-                background-color: transparent;
-                border: none;
-                position: absolute;
-                right: 30px; 
-                top: 25px;
-                cursor: pointer; 
-                padding: 0;
-            }   
-            &__list-ingredients,
-            &__list-appareils,
-            &__list-ustensiles {
-                display: none;
-                width: 195px;
-                border-radius: 11px;
-                overflow-y: scroll;
-                &__ingredients,
-                &__appliance,
-                &__ustensils {
-                @include list-styles; 
-                }
-            }
-        }
-    }
-    &__recipe-count {
-        position: relative;
-        top: 10px;
-        color: $CouleurPrimary;
-        font-family: Anton;
-        font-size: 21px;
-        font-style: normal;
-        font-weight: 400;
-        }
- }
- 
-
- .display-none{
-    display: none;
- }
- .section-tag {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 40px 102px;
-    gap: 50px;
-
- }
-
-.tag {
-    position: relative;
-    width: 203px;
-    height: 32px;
-    background-color: $CouleurTertiary;
-    color: $CouleurPrimary;
-    font-family: Manrope;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    display: flex;
-    justify-content: space-between;
-    padding: 17px 18px;
-    align-items: center;
-    gap: 60px;
-    border-radius: 10px ;
-  }
-
-.border-Menu-tag-select {
-    border-color: $CouleurTertiary;
-}
- .formatting-Menu {
-   
-
- }
-
- .rotate-arrow {
-    transform: rotate(0deg);
- }
 
 /// ================
 /// card recipe
@@ -344,4 +219,156 @@ body {
             font-weight: 400;
         }
     }
+}
+
+/// ================
+/// menu filter 
+/// ================
+
+ .menu-filter {
+    display: flex;
+    justify-content: space-between;
+    margin: 40px 102px;
+    &__container-filter {
+        position: relative;
+        display: flex;
+        gap: 63px;
+        &__menu {
+            width: 195px;
+            max-height: 500px;
+            display: flex;
+            flex-direction: column;
+            &__group { 
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                height: 33px;
+                background: #FFF;
+                border-radius: 11px;                
+                padding: 17px 16px 17px 16px;
+                cursor: pointer;
+                &.menu-clicked {
+                    border-radius: 11px 11px 0px 0px; 
+                    img {
+                        transform: rotate(180deg);
+                    }
+                    &~form {
+                        display: block;
+                    }
+                    &~div {
+                        display: block;
+                    }
+                }
+                &__content{
+                    margin: 0;
+                    color: $CouleurPrimary;
+                    font-family: Manrope;
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 500;
+                }
+                &__arrow {
+                    stroke: $CouleurPrimary;
+                    width: 20px;
+                    height: 12px;
+                    transform: rotate(0deg);
+                }
+            }
+            & form {
+                position: relative;
+                background: #FFF;
+                height: 50px;
+                padding: 13px 16px 13px 16px;
+                display: none;
+            }
+            & input {
+                width: 155px;
+                height: 40px;
+                border-radius: 2px;
+                border: 1.5px solid #c6c6c6;
+            }
+            & button {
+                background-color: transparent;
+                border: none;
+                position: absolute;
+                right: 30px; 
+                top: 25px;
+                cursor: pointer; 
+                padding: 0;
+            }
+            &__section-pin-ingredients,
+            &__section-pin-appliance,
+            &__section-pin-ustensils {
+                display: none;
+                width: 195px;
+                background-color: #FFD15B;
+                &__pinElement{
+                    @include pinElement; 
+                }
+            }   
+            &__list-ingredients,
+            &__list-appareils,
+            &__list-ustensiles {
+                display: none;
+                width: 195px;
+                border-radius: 0px 0px 11px 11px;
+                overflow-y: scroll;
+                &__ingredients,
+                &__appliance,
+                &__ustensils {
+                @include list-styles; 
+                }
+            }
+        }
+    }
+    &__recipe-count {
+        position: relative;
+        top: 10px;
+        color: $CouleurPrimary;
+        font-family: Anton;
+        font-size: 21px;
+        font-style: normal;
+        font-weight: 400;
+        }
+ }
+ 
+/// ================
+/// Tag
+/// ================
+
+ 
+ .section-tag {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 40px 102px;
+    gap: 50px;
+
+ }
+
+.tag {
+    position: relative;
+    display: flex; 
+    width: 203px;
+    height: 32px;
+    background-color: $CouleurTertiary;
+    justify-content: space-between;
+    padding: 17px 18px;
+    align-items: center;
+    gap: 60px;
+    border-radius: 10px ;
+    &__content{
+        color: $CouleurPrimary;
+        font-family: Manrope;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+    }
+    &__cross {
+        cursor: pointer;
+    }
+  }
+ 
+.border-Menu-tag-select {
+    border-color: $CouleurTertiary;
 }

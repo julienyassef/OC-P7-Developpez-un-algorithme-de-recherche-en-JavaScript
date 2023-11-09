@@ -12,6 +12,10 @@ body {
   gap: 50px;
 }
 
+.display-none {
+  display: none;
+}
+
 .header {
   position: relative;
   background-image: url(../assets/lampos-aritonang-24gR_9lCdes-unsplash\ 1.png);
@@ -63,146 +67,6 @@ body {
   width: 52px;
   height: 52px;
   cursor: pointer;
-}
-
-.menu-filter {
-  display: flex;
-  justify-content: space-between;
-  margin: 40px 102px;
-}
-.menu-filter__container-filter {
-  position: relative;
-  display: flex;
-  gap: 63px;
-}
-.menu-filter__container-filter__menu {
-  width: 195px;
-  max-height: 500px;
-  display: flex;
-  flex-direction: column;
-}
-.menu-filter__container-filter__menu__group {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  height: 56px;
-  background: #FFF;
-  border-radius: 11px;
-  padding: 17px 16px 17px 16px;
-  cursor: pointer;
-}
-.menu-filter__container-filter__menu__group.menu-clicked img {
-  transform: rotate(180deg);
-}
-.menu-filter__container-filter__menu__group.menu-clicked ~ form {
-  display: block;
-}
-.menu-filter__container-filter__menu__group.menu-clicked ~ div {
-  display: block;
-}
-.menu-filter__container-filter__menu__group__content {
-  margin: 0;
-  color: #1B1B1B;
-  font-family: Manrope;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-}
-.menu-filter__container-filter__menu__group__arrow {
-  stroke: #1B1B1B;
-  width: 20px;
-  height: 12px;
-  transform: rotate(0deg);
-}
-.menu-filter__container-filter__menu form {
-  position: relative;
-  background: #FFF;
-  height: 50px;
-  border-radius: 0px 0px 11px 11px;
-  padding: 13px 16px 13px 16px;
-  display: none;
-}
-.menu-filter__container-filter__menu input {
-  width: 155px;
-  height: 40px;
-  border-radius: 2px;
-  border: 1.5px solid #c6c6c6;
-}
-.menu-filter__container-filter__menu button {
-  background-color: transparent;
-  border: none;
-  position: absolute;
-  right: 30px;
-  top: 25px;
-  cursor: pointer;
-  padding: 0;
-}
-.menu-filter__container-filter__menu__list-ingredients, .menu-filter__container-filter__menu__list-appareils, .menu-filter__container-filter__menu__list-ustensiles {
-  display: none;
-  width: 195px;
-  border-radius: 11px;
-  overflow-y: scroll;
-}
-.menu-filter__container-filter__menu__list-ingredients__ingredients, .menu-filter__container-filter__menu__list-ingredients__appliance, .menu-filter__container-filter__menu__list-ingredients__ustensils, .menu-filter__container-filter__menu__list-appareils__ingredients, .menu-filter__container-filter__menu__list-appareils__appliance, .menu-filter__container-filter__menu__list-appareils__ustensils, .menu-filter__container-filter__menu__list-ustensiles__ingredients, .menu-filter__container-filter__menu__list-ustensiles__appliance, .menu-filter__container-filter__menu__list-ustensiles__ustensils {
-  display: flex;
-  align-items: center;
-  background-color: #FFF;
-  height: 32px;
-  color: #1B1B1B;
-  font-family: Manrope;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  padding: 8px 16px 8px 16px;
-}
-.menu-filter__recipe-count {
-  position: relative;
-  top: 10px;
-  color: #1B1B1B;
-  font-family: Anton;
-  font-size: 21px;
-  font-style: normal;
-  font-weight: 400;
-}
-
-.display-none {
-  display: none;
-}
-
-.section-tag {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 40px 102px;
-  gap: 50px;
-}
-
-.tag {
-  position: relative;
-  width: 203px;
-  height: 32px;
-  background-color: #FFD15B;
-  color: #1B1B1B;
-  font-family: Manrope;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  display: flex;
-  justify-content: space-between;
-  padding: 17px 18px;
-  align-items: center;
-  gap: 60px;
-  border-radius: 10px;
-}
-
-.border-Menu-tag-select {
-  border-color: #FFD15B;
-}
-
-.rotate-arrow {
-  transform: rotate(0deg);
 }
 
 .recipe-card {
@@ -293,4 +157,163 @@ body {
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
+}
+
+.menu-filter {
+  display: flex;
+  justify-content: space-between;
+  margin: 40px 102px;
+}
+.menu-filter__container-filter {
+  position: relative;
+  display: flex;
+  gap: 63px;
+}
+.menu-filter__container-filter__menu {
+  width: 195px;
+  max-height: 500px;
+  display: flex;
+  flex-direction: column;
+}
+.menu-filter__container-filter__menu__group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 33px;
+  background: #FFF;
+  border-radius: 11px;
+  padding: 17px 16px 17px 16px;
+  cursor: pointer;
+}
+.menu-filter__container-filter__menu__group.menu-clicked {
+  border-radius: 11px 11px 0px 0px;
+}
+.menu-filter__container-filter__menu__group.menu-clicked img {
+  transform: rotate(180deg);
+}
+.menu-filter__container-filter__menu__group.menu-clicked ~ form {
+  display: block;
+}
+.menu-filter__container-filter__menu__group.menu-clicked ~ div {
+  display: block;
+}
+.menu-filter__container-filter__menu__group__content {
+  margin: 0;
+  color: #1B1B1B;
+  font-family: Manrope;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+}
+.menu-filter__container-filter__menu__group__arrow {
+  stroke: #1B1B1B;
+  width: 20px;
+  height: 12px;
+  transform: rotate(0deg);
+}
+.menu-filter__container-filter__menu form {
+  position: relative;
+  background: #FFF;
+  height: 50px;
+  padding: 13px 16px 13px 16px;
+  display: none;
+}
+.menu-filter__container-filter__menu input {
+  width: 155px;
+  height: 40px;
+  border-radius: 2px;
+  border: 1.5px solid #c6c6c6;
+}
+.menu-filter__container-filter__menu button {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  right: 30px;
+  top: 25px;
+  cursor: pointer;
+  padding: 0;
+}
+.menu-filter__container-filter__menu__section-pin-ingredients, .menu-filter__container-filter__menu__section-pin-appliance, .menu-filter__container-filter__menu__section-pin-ustensils {
+  display: none;
+  width: 195px;
+  background-color: #FFD15B;
+}
+.menu-filter__container-filter__menu__section-pin-ingredients__pinElement, .menu-filter__container-filter__menu__section-pin-appliance__pinElement, .menu-filter__container-filter__menu__section-pin-ustensils__pinElement {
+  display: flex;
+  align-items: center;
+  height: 32px;
+  color: #1B1B1B;
+  font-family: Manrope;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding: 8px 16px 8px 16px;
+}
+.menu-filter__container-filter__menu__list-ingredients, .menu-filter__container-filter__menu__list-appareils, .menu-filter__container-filter__menu__list-ustensiles {
+  display: none;
+  width: 195px;
+  border-radius: 0px 0px 11px 11px;
+  overflow-y: scroll;
+}
+.menu-filter__container-filter__menu__list-ingredients__ingredients, .menu-filter__container-filter__menu__list-ingredients__appliance, .menu-filter__container-filter__menu__list-ingredients__ustensils, .menu-filter__container-filter__menu__list-appareils__ingredients, .menu-filter__container-filter__menu__list-appareils__appliance, .menu-filter__container-filter__menu__list-appareils__ustensils, .menu-filter__container-filter__menu__list-ustensiles__ingredients, .menu-filter__container-filter__menu__list-ustensiles__appliance, .menu-filter__container-filter__menu__list-ustensiles__ustensils {
+  display: flex;
+  align-items: center;
+  background-color: #FFF;
+  height: 32px;
+  color: #1B1B1B;
+  font-family: Manrope;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding: 8px 16px 8px 16px;
+}
+.menu-filter__recipe-count {
+  position: relative;
+  top: 10px;
+  color: #1B1B1B;
+  font-family: Anton;
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.section-tag {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 40px 102px;
+  gap: 50px;
+}
+
+.tag {
+  position: relative;
+  display: flex;
+  width: 203px;
+  height: 32px;
+  background-color: #FFD15B;
+  justify-content: space-between;
+  padding: 17px 18px;
+  align-items: center;
+  gap: 60px;
+  border-radius: 10px;
+}
+.tag__content {
+  color: #1B1B1B;
+  font-family: Manrope;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+}
+.tag__cross {
+  cursor: pointer;
+}
+
+.border-Menu-tag-select {
+  border-color: #FFD15B;
 }/*# sourceMappingURL=style.css.map */
