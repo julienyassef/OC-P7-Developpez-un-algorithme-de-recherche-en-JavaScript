@@ -3,7 +3,6 @@ import { saveData } from "./storage.js";
 
 import { displayRecipes } from "./dom.js";
 
-
 export const ingredientSearch = () => {
   const ingredientInput = document.querySelector("#ingredientInput");
   const recipes = getData();
@@ -30,31 +29,39 @@ export const ingredientSearch = () => {
       }
     });
 
-    if (value.length < 3) {
-      // Si la longueur de la valeur est inférieure à 3, affichez toutes les recettes
-      recipes.forEach((recipe) => {
-        const recipeElement = document.getElementById(`recipe-${recipe.id}`);
+    // if (value.length >= 3) {
+    //   // Si la longueur de la valeur est supérieure ou égale à 3, ajustez la visibilité des recettes
+    //   recipes.forEach((recipe) => {
+    //     const recipeElement = document.getElementById(`recipe-${recipe.id}`);
+    //     const recipeIngredients = recipe.ingredients
+    //       .map((ingredient) => ingredient.ingredient.toLowerCase())
+    //       .join(" ");
 
-        if (recipeElement) {
-          recipeElement.style.display = "block";
-        }
-      });
-      return;
-    }
+    //     if (recipe.display === true && recipeIngredients.search(value) === -1 && recipeElement) {
+    //       recipeElement.style.display = "none";
+    //     } else if (recipeElement) {
+    //       recipeElement.style.display = "block";
+    //     }
+    //   });
+    // }
 
-    // Itérez sur les recettes pour ajuster la visibilité en fonction de la recherche
-    recipes.forEach((recipe) => {
-      const recipeIngredients = recipe.ingredients
-        .map((ingredients) => ingredients.ingredient.toLowerCase())
-        .join(" ");
 
-      // comparer si value est dans le tableau d'ingrédient de la recette
-      const recipeElement = document.getElementById(`recipe-${recipe.id}`);
-      if (recipe.display === true && recipeIngredients.search(value) === -1 && recipeElement) {
-        recipeElement.style.display = "none";
-      } else if (recipeElement) {
-        recipeElement.style.display = "block";
-      }
-    });
+
+    // if (value.length < 3) return;
+    
+    // const filteredRecipes = recipes.map((recipe) => {
+    //   // regarder si y'a l'ingrédient dans les recette qui sont display = true
+    //   if (recipe.display === true) {
+    //     const recipeIngredients = recipe.ingredients
+    //     .map((ingredients) => ingredients.ingredient.toLowerCase())
+    //     .join(" ");
+        
+    //     // comparer si value est dans le tableau d'ingrédient de la recette
+    //     if (recipeIngredients.search(value.toLowerCase()) === -1) {
+    //       recipe.display = false;
+    //     }
+    //   }
+    //   return recipe;
+    // });
   });
 };
