@@ -36,6 +36,7 @@ export const displayRecipes = (recipes) => {
 
 };
 
+
 export const displayListIngredients = (recipes) => {
   const sectionListIngredients = document.querySelector(
     ".menu-filter__container-filter__menu__list-ingredients"

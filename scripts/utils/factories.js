@@ -2,6 +2,7 @@
 export const createRecipeCard = (recipe) => {
     const recipeCard = document.createElement('article');
     recipeCard.classList.add('recipe-card');
+    recipeCard.id = `recipe-${recipe.id}`;
 
     const timeContainer = document.createElement('div');
     timeContainer.classList.add('recipe-card__time-container');
