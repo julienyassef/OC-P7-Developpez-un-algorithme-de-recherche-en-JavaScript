@@ -141,3 +141,42 @@ const divsUstensils = document.querySelectorAll(
         });
     });
 };
+
+export const filterRecipesDeleteByTag = () => {
+  const recipes = getData();
+
+  /// récupérer dans un tableau les tags affichés et sélectionnés
+  const tagsDisplay = document.querySelectorAll(".tag__content");
+  const arrayTagDisplay = Array.from(tagsDisplay).map(tag => tag.textContent);
+
+  recipes.forEach((recipe) => {
+    
+          const recipeIngredients = recipe.ingredients
+              .map((ingredients) => ingredients.ingredient.toLowerCase())
+              .join(" ");
+          
+          const recipeAppliance = recipe.appliance.toLowerCase();
+
+          const recipeUstensils = recipe.ustensils
+              .map((appliance) => appliance.toLowerCase())
+              .join (" ");
+
+              if (
+                  arrayTagDisplay.length === 0 ||
+                  arrayTagDisplay.some(tag =>
+                      recipeIngredients.includes(tag.toLowerCase()) ||
+                      recipeAppliance.includes(tag.toLowerCase()) ||
+                      recipeUstensils.includes(tag.toLowerCase())
+                  )
+              ) {
+                  recipe.display = true;
+              } else {
+                  recipe.display = false;
+              }
+      
+  });
+
+  // sauvegard et afficher les recettes
+  saveData(recipes);
+  displayRecipes(recipes);
+}
