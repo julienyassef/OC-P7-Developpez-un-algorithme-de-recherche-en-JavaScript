@@ -16,7 +16,6 @@ const init = async () => {
   displayRecipes(recipes);
   // displayListIngredients(recipes);
 
-  toggleFilterMenus();
 
 
 };
