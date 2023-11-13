@@ -38,6 +38,18 @@ export const displayRecipes = (recipes) => {
 
 };
 
+export const displayRecipesWithoutLists = (recipes) => {
+  countRecipe(recipes);
+  const domSection = document.querySelector(".recipe-section");
+  domSection.innerHTML = "";
+  recipes.forEach((recipe) => {
+    if (recipe.display === true) {
+      domSection.appendChild(createRecipeCard(recipe));
+    }
+  });
+
+};
+
 
 export const displayListIngredients = (recipes) => {
   const sectionListIngredients = document.querySelector(
