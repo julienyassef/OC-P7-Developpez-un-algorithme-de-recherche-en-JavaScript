@@ -9,10 +9,9 @@ import { handleIngredientsElementList } from "./handleTags.js";
 import { handleApplianceElementList } from "./handleTags.js";
 import { handleUstensilsElementList } from "./handleTags.js";
 
-import { ingredientSearch } from "./ingredientSearch.js";
-
-
-
+import { ingredientSearch } from "./search.js";
+import { applianceSearch } from "./search.js";
+import { ustensileSearch } from "./search.js";
 
 
 
@@ -38,6 +37,16 @@ export const displayRecipes = (recipes) => {
 
 };
 
+export const displayRecipesWithoutLists = (recipes) => {
+  countRecipe(recipes);
+  const domSection = document.querySelector(".recipe-section");
+  domSection.innerHTML = "";
+  recipes.forEach((recipe) => {
+    if (recipe.display === true) {
+      domSection.appendChild(createRecipeCard(recipe));
+    }
+  });
+};
 
 export const displayListIngredients = (recipes) => {
   const sectionListIngredients = document.querySelector(
@@ -130,6 +139,8 @@ export const displayListAppliance = (recipes) => {
       sectionListAppliance.appendChild(createlistAppliances(appliance));
     }
   });
+
+  applianceSearch();
  
   handleApplianceElementList ();
 };
@@ -169,6 +180,8 @@ export const displayListUstensils = (recipes) => {
       sectionListUstensils.appendChild(createlistUstensils(ustensil));
     }
   });
+
+  ustensileSearch();
 
   handleUstensilsElementList();
 };
