@@ -13,6 +13,8 @@ import { ingredientSearch } from "./search.js";
 import { applianceSearch } from "./search.js";
 import { ustensileSearch } from "./search.js";
 
+import { searchBarPrincipal } from "./search.js";
+
 
 
 export const countRecipe = (recipes) => {
@@ -33,7 +35,8 @@ export const displayRecipes = (recipes) => {
 
   displayListAppliance(recipes);
   displayListUstensils(recipes);
-  displayListIngredients(recipes)
+  displayListIngredients(recipes);
+  searchBarPrincipal();
 
 };
 
