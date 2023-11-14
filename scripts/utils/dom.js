@@ -27,7 +27,6 @@ export const countRecipe = (recipes) => {
 export const errorMessage = (recipes) => {
   const countRecipes = countRecipe(recipes); 
   if (countRecipes === 0) {
-    console.log("tot");
     const errorMessageElement = document.querySelector(".error-message");
     errorMessageElement.style.display = "block"; 
   }
