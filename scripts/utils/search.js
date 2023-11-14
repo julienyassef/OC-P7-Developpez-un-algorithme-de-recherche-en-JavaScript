@@ -108,3 +108,58 @@ export const applianceSearch = () => {
     }, 300); // Délai d'attente en millisecondes
   });
 };
+
+export const ustensileSearch = () => {
+
+  // Sélection des éléments du menu des ingrédients et de l'input
+  const divsUstensils = document.querySelectorAll(".menu-filter__container-filter__menu__list-ustensiles__ustensils");
+  const ustensilInput = document.querySelector("#ustensilInput");
+  const recipes = getData(); 
+  let timer; 
+
+  ustensilInput .value = '';
+  
+  // Événement lors de la saisie dans l'input
+  ustensilInput .addEventListener("input", (event) => {
+    console.log("tot")
+    clearTimeout(timer); // Nettoyage du minuteur pour éviter les déclenchements multiples
+
+    const value = event.target.value.toLowerCase(); 
+    const normalizedValue = value.normalize("NFD").replace(/[\u0300-\u036f]/g, ""); 
+
+    // Filtrage des ingrédients du menu en fonction de la saisie; displauy ou non sur la liste
+    divsUstensils.forEach((div) => {
+      const ustensil = div.textContent.toLowerCase();
+      if (normalizedValue.length >= 3) {
+        const isVisible = ustensil.normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(normalizedValue.toLowerCase());
+        div.style.display = isVisible ? "block" : "none"; 
+      } else {
+        div.style.display = "block"; 
+      }
+    });
+
+    // Attente de 300 ms avant de filtrer les recettes pour éviter les requêtes fréquentes
+    timer = setTimeout(() => {
+      const filteredRecipes = recipes.map((recipe) => {
+        const recipeUstensils = recipe.ustensils
+                .map((appliance) => appliance.toLowerCase())
+                .join (" ");
+
+        // Filtrage des recettes en fonction de la saisie normalisée
+        if (normalizedValue.length >= 3) {
+          if (recipeUstensils .includes(normalizedValue)) {
+            recipe.display = true;
+          } else {
+            recipe.display = false;
+          }
+        } else {
+          recipe.display = true; // Affichage de toutes les recettes si la saisie est inférieure à 3 caractères
+        }
+        return recipe;
+      });
+
+      // Affichage des recettes filtrées
+      displayRecipesWithoutLists(filteredRecipes);
+    }, 300); // Délai d'attente en millisecondes
+  });
+};

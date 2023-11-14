@@ -11,6 +11,7 @@ import { handleUstensilsElementList } from "./handleTags.js";
 
 import { ingredientSearch } from "./search.js";
 import { applianceSearch } from "./search.js";
+import { ustensileSearch } from "./search.js";
 
 
 
@@ -179,6 +180,8 @@ export const displayListUstensils = (recipes) => {
       sectionListUstensils.appendChild(createlistUstensils(ustensil));
     }
   });
+
+  ustensileSearch();
 
   handleUstensilsElementList();
 };
