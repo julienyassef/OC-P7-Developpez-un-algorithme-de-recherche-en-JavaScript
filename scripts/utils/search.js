@@ -38,14 +38,16 @@ export const ingredientSearch = () => {
           .join(" ");
 
         // Filtrage des recettes en fonction de la saisie normalisée
-        if (normalizedValue.length >= 3) {
-          if (recipeIngredients.includes(normalizedValue)) {
-            recipe.display = true;
+        if (recipe.display === true) {
+          if (normalizedValue.length >= 3) {
+            if (recipeIngredients.includes(normalizedValue)) {
+              recipe.display = true;
+            } else {
+              recipe.display = false;
+            }
           } else {
-            recipe.display = false;
+            recipe.display = true; // Affichage de toutes les recettes si la saisie est inférieure à 3 caractères
           }
-        } else {
-          recipe.display = true; // Affichage de toutes les recettes si la saisie est inférieure à 3 caractères
         }
         return recipe;
       });
@@ -91,14 +93,16 @@ export const applianceSearch = () => {
         const recipeAppliance = recipe.appliance.toLowerCase();
 
         // Filtrage des recettes en fonction de la saisie normalisée
-        if (normalizedValue.length >= 3) {
-          if (recipeAppliance .includes(normalizedValue)) {
-            recipe.display = true;
+        if (recipe.display === true) {
+          if (normalizedValue.length >= 3) {
+            if (recipeAppliance .includes(normalizedValue)) {
+              recipe.display = true;
+            } else {
+              recipe.display = false;
+            }
           } else {
-            recipe.display = false;
+            recipe.display = true; // Affichage de toutes les recettes si la saisie est inférieure à 3 caractères
           }
-        } else {
-          recipe.display = true; // Affichage de toutes les recettes si la saisie est inférieure à 3 caractères
         }
         return recipe;
       });
@@ -121,7 +125,6 @@ export const ustensileSearch = () => {
   
   // Événement lors de la saisie dans l'input
   ustensilInput .addEventListener("input", (event) => {
-    console.log("tot")
     clearTimeout(timer); // Nettoyage du minuteur pour éviter les déclenchements multiples
 
     const value = event.target.value.toLowerCase(); 
@@ -146,14 +149,16 @@ export const ustensileSearch = () => {
                 .join (" ");
 
         // Filtrage des recettes en fonction de la saisie normalisée
-        if (normalizedValue.length >= 3) {
-          if (recipeUstensils .includes(normalizedValue)) {
-            recipe.display = true;
+        if (recipe.display === true) {
+          if (normalizedValue.length >= 3) {
+            if (recipeUstensils .includes(normalizedValue)) {
+              recipe.display = true;
+            } else {
+              recipe.display = false;
+            }
           } else {
-            recipe.display = false;
+            recipe.display = true; // Affichage de toutes les recettes si la saisie est inférieure à 3 caractères
           }
-        } else {
-          recipe.display = true; // Affichage de toutes les recettes si la saisie est inférieure à 3 caractères
         }
         return recipe;
       });
