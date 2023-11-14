@@ -24,11 +24,14 @@ export const countRecipe = (recipes) => {
   return countRecipes;
 };
 
+
 export const errorMessage = (recipes) => {
   const countRecipes = countRecipe(recipes); 
+  const errorMessageElement = document.querySelector(".error-message");
   if (countRecipes === 0) {
-    const errorMessageElement = document.querySelector(".error-message");
     errorMessageElement.style.display = "block"; 
+  } else if (countRecipes >= 1){
+    errorMessageElement.style.display = "none"; 
   }
 };
 
