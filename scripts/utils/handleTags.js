@@ -141,42 +141,52 @@ const divsUstensils = document.querySelectorAll(
         });
     });
 };
-
 export const filterRecipesDeleteByTag = () => {
   const recipes = getData();
 
-  /// récupérer dans un tableau les tags affichés et sélectionnés
+  // Récupérer dans un tableau les tags affichés et sélectionnés
   const tagsDisplay = document.querySelectorAll(".tag__content");
-  const arrayTagDisplay = Array.from(tagsDisplay).map(tag => tag.textContent);
+  const arrayTagDisplay = Array.from(tagsDisplay).map((tag) => tag.textContent);
+
+  const searchInput = document.getElementById("searchInput");
+  const searchValue = searchInput.value.toLowerCase();
+  const normalizedSearchValue = searchValue.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 
   recipes.forEach((recipe) => {
-    
-          const recipeIngredients = recipe.ingredients
-              .map((ingredients) => ingredients.ingredient.toLowerCase())
-              .join(" ");
-          
-          const recipeAppliance = recipe.appliance.toLowerCase();
+    const recipeIngredients = recipe.ingredients
+      .map((ingredients) => ingredients.ingredient.toLowerCase())
+      .join(" ");
 
-          const recipeUstensils = recipe.ustensils
-              .map((appliance) => appliance.toLowerCase())
-              .join (" ");
+    const recipeAppliance = recipe.appliance.toLowerCase();
 
-              if (
-                  arrayTagDisplay.length === 0 ||
-                  arrayTagDisplay.some(tag =>
-                      recipeIngredients.includes(tag.toLowerCase()) ||
-                      recipeAppliance.includes(tag.toLowerCase()) ||
-                      recipeUstensils.includes(tag.toLowerCase())
-                  )
-              ) {
-                  recipe.display = true;
-              } else {
-                  recipe.display = false;
-              }
-      
+    const recipeUstensils = recipe.ustensils
+      .map((appliance) => appliance.toLowerCase())
+      .join(" ");
+
+    const title = recipe.name;
+    const description = recipe.description;
+
+    const passesSearchFilter =
+      normalizedSearchValue.length >= 3 &&
+      (recipeIngredients.includes(normalizedSearchValue) ||
+        recipeAppliance.includes(normalizedSearchValue) ||
+        recipeUstensils.includes(normalizedSearchValue) ||
+        title.includes(normalizedSearchValue) ||
+        description.includes(normalizedSearchValue));
+
+    const passesTagFilter =
+      arrayTagDisplay.length === 0 ||
+      arrayTagDisplay.some((tag) =>
+        recipeIngredients.includes(tag.toLowerCase()) ||
+        recipeAppliance.includes(tag.toLowerCase()) ||
+        recipeUstensils.includes(tag.toLowerCase())
+      );
+
+    // La recette doit passer à true si elle passe les deux filtres
+    recipe.display = passesSearchFilter && passesTagFilter;
   });
 
-  // sauvegard et afficher les recettes
+  // Sauvegarder et afficher les recettes
   saveData(recipes);
   displayRecipes(recipes);
-}
+};
