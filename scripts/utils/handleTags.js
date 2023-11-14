@@ -183,7 +183,11 @@ export const filterRecipesDeleteByTag = () => {
       );
 
     // La recette doit passer à true si elle passe les deux filtres
-    recipe.display = passesSearchFilter && passesTagFilter;
+    if (passesSearchFilter && passesTagFilter) {
+      recipe.display = true;
+    } else {
+      recipe.display = false;
+    }
   });
 
   // Sauvegarder et afficher les recettes

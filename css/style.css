@@ -316,4 +316,12 @@ body {
 
 .border-Menu-tag-select {
   border-color: #FFD15B;
+}
+
+.error-message {
+  display: none;
+  color: red;
+  font-family: manrope;
+  font-size: 12px;
+  margin: 0;
 }/*# sourceMappingURL=style.css.map */

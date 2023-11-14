@@ -21,10 +21,21 @@ export const countRecipe = (recipes) => {
   const countSection = document.querySelector(".menu-filter__recipe-count");
   let countRecipes = recipes.filter((recipe) => recipe.display === true).length;
   countSection.textContent = `${countRecipes} recettes`;
+  return countRecipes;
+};
+
+export const errorMessage = (recipes) => {
+  const countRecipes = countRecipe(recipes); 
+  if (countRecipes === 0) {
+    console.log("tot");
+    const errorMessageElement = document.querySelector(".error-message");
+    errorMessageElement.style.display = "block"; 
+  }
 };
 
 export const displayRecipes = (recipes) => {
   countRecipe(recipes);
+  errorMessage (recipes);
   const domSection = document.querySelector(".recipe-section");
   domSection.innerHTML = "";
   recipes.forEach((recipe) => {

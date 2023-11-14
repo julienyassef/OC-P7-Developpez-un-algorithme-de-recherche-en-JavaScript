@@ -372,3 +372,18 @@ body {
 .border-Menu-tag-select {
     border-color: $CouleurTertiary;
 }
+
+ 
+/// ================
+/// Message erreur
+/// ================
+
+ 
+.error-message{
+    display: none;
+    color: red;
+    font-family: $familyFontText;
+    font-size: 12px; 
+     margin: 0;
+   
+ }
