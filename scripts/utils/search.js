@@ -1,5 +1,7 @@
 import { getData } from "./storage.js";
+import { saveData } from "./storage.js";
 
+import { displayRecipes } from "./dom.js";
 import { displayRecipesWithoutLists } from "./dom.js";
 
 export const ingredientSearch = () => {
@@ -166,5 +168,53 @@ export const ustensileSearch = () => {
       // Affichage des recettes filtrées
       displayRecipesWithoutLists(filteredRecipes);
     }, 300); // Délai d'attente en millisecondes
+  });
+};
+
+export const searchBarPrincipal = () => {
+  const searchInput = document.getElementById("searchInput");
+  const recipes = getData();
+  let timer; 
+
+
+  searchInput.addEventListener("input", (event) => {
+    clearTimeout(timer); // Nettoyage du minuteur pour éviter les déclenchements multiples
+
+    const value = event.target.value.toLowerCase();
+    const normalizedValue = value.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+
+    // Mise à jour en temps réel du filtrage
+    timer = setTimeout(() => {
+      const filteredRecipes = recipes.map((recipe) => {
+        const recipeUstensils = recipe.ustensils.map((ustensil) => ustensil.toLowerCase());
+        const recipeAppliance = recipe.appliance.toLowerCase();
+        const recipeIngredients = recipe.ingredients.map((ingredient) => ingredient.ingredient.toLowerCase());
+        const title = recipe.name;
+        const description = recipe.description;
+  
+        if (normalizedValue.length >= 3) {
+          // Vérification si la valeur normalisée est présente dans l'une des constantes
+          if (
+            recipeUstensils.includes(normalizedValue) ||
+            recipeAppliance.includes(normalizedValue) ||
+            recipeIngredients.includes(normalizedValue) ||
+            title.includes(normalizedValue) ||
+            description.includes(normalizedValue)
+          ) {
+            recipe.display = true;
+          } else {
+            recipe.display = false;
+          }
+        } else {
+          // Si la longueur de la valeur normalisée est inférieure à 3, afficher toutes les recettes
+          recipe.display = true;
+        }
+  
+        return recipe;
+      });
+  
+      saveData(filteredRecipes);
+      displayRecipes(filteredRecipes);
+    },300);
   });
 };

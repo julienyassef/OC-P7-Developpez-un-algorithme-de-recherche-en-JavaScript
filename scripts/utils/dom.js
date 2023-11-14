@@ -13,16 +13,31 @@ import { ingredientSearch } from "./search.js";
 import { applianceSearch } from "./search.js";
 import { ustensileSearch } from "./search.js";
 
+import { searchBarPrincipal } from "./search.js";
+
 
 
 export const countRecipe = (recipes) => {
   const countSection = document.querySelector(".menu-filter__recipe-count");
   let countRecipes = recipes.filter((recipe) => recipe.display === true).length;
   countSection.textContent = `${countRecipes} recettes`;
+  return countRecipes;
+};
+
+
+export const errorMessage = (recipes) => {
+  const countRecipes = countRecipe(recipes); 
+  const errorMessageElement = document.querySelector(".error-message");
+  if (countRecipes === 0) {
+    errorMessageElement.style.display = "block"; 
+  } else if (countRecipes >= 1){
+    errorMessageElement.style.display = "none"; 
+  }
 };
 
 export const displayRecipes = (recipes) => {
   countRecipe(recipes);
+  errorMessage (recipes);
   const domSection = document.querySelector(".recipe-section");
   domSection.innerHTML = "";
   recipes.forEach((recipe) => {
@@ -33,7 +48,8 @@ export const displayRecipes = (recipes) => {
 
   displayListAppliance(recipes);
   displayListUstensils(recipes);
-  displayListIngredients(recipes)
+  displayListIngredients(recipes);
+  searchBarPrincipal();
 
 };
 

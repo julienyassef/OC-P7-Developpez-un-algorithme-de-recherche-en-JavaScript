@@ -316,4 +316,18 @@ body {
 
 .border-Menu-tag-select {
   border-color: #FFD15B;
+}
+
+.error-message {
+  display: none;
+  color: red;
+  font-family: manrope;
+  font-size: 18px;
+  text-align: center;
+  align-items: center;
+  position: absolute;
+  top: 700px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
 }/*# sourceMappingURL=style.css.map */
