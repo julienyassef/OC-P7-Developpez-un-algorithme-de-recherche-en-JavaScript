@@ -9,7 +9,8 @@ import { handleIngredientsElementList } from "./handleTags.js";
 import { handleApplianceElementList } from "./handleTags.js";
 import { handleUstensilsElementList } from "./handleTags.js";
 
-import { ingredientSearch } from "./ingredientSearch.js";
+import { ingredientSearch } from "./search.js";
+import { applianceSearch } from "./search.js";
 
 
 
@@ -137,6 +138,8 @@ export const displayListAppliance = (recipes) => {
       sectionListAppliance.appendChild(createlistAppliances(appliance));
     }
   });
+
+  applianceSearch();
  
   handleApplianceElementList ();
 };
