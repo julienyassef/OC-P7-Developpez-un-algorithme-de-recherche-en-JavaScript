@@ -16,7 +16,6 @@ import { ustensileSearch } from "./search.js";
 import { searchBarPrincipal } from "./search.js";
 
 
-
 export const countRecipe = (recipes) => {
   const countSection = document.querySelector(".menu-filter__recipe-count");
   let countRecipes = recipes.filter((recipe) => recipe.display === true).length;

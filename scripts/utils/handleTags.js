@@ -141,6 +141,7 @@ const divsUstensils = document.querySelectorAll(
         });
     });
 };
+
 export const filterRecipesDeleteByTag = () => {
   const recipes = getData();
 
