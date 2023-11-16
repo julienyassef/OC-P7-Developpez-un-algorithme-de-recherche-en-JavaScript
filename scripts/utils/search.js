@@ -200,7 +200,8 @@ export const searchBarPrincipal = () => {
             recipeIngredients.includes(normalizedValue) ||
             title.includes(normalizedValue) ||
             description.includes(normalizedValue)
-          ) {
+            ) {
+            console.log(title);
             recipe.display = true;
           } else {
             recipe.display = false;
