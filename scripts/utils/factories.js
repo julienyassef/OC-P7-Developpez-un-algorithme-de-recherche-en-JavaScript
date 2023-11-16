@@ -15,8 +15,7 @@ export const createRecipeCard = (recipe) => {
 
     const img = document.createElement('img');
     img.classList.add('recipe-card__image');
-//   img.src = `./photosRecettes/${recipe.image}`;
-    img.src="./photosRecettes/Recette07.jpg";
+    img.src = `./photosRecettes/${recipe.image}`;
     img.alt = `photo de la recette : ${recipe.name}`;
 
     const containerCard = document.createElement('div');
