@@ -15,28 +15,28 @@ import { ustensileSearch } from "./search.js";
 
 import { searchBarPrincipal } from "./search.js";
 
-
 export const countRecipe = (recipes) => {
   const countSection = document.querySelector(".menu-filter__recipe-count");
   let countRecipes = recipes.filter((recipe) => recipe.display === true).length;
-  countSection.textContent = `${countRecipes} recettes`;
+  countSection.textContent = `${countRecipes} recette${
+    countRecipes > 1 ? "s" : ""
+  }`;
   return countRecipes;
 };
 
-
 export const errorMessage = (recipes) => {
-  const countRecipes = countRecipe(recipes); 
+  const countRecipes = countRecipe(recipes);
   const errorMessageElement = document.querySelector(".error-message");
   if (countRecipes === 0) {
-    errorMessageElement.style.display = "block"; 
-  } else if (countRecipes >= 1){
-    errorMessageElement.style.display = "none"; 
+    errorMessageElement.style.display = "block";
+  } else if (countRecipes >= 1) {
+    errorMessageElement.style.display = "none";
   }
 };
 
 export const displayRecipes = (recipes) => {
   countRecipe(recipes);
-  errorMessage (recipes);
+  errorMessage(recipes);
   const domSection = document.querySelector(".recipe-section");
   domSection.innerHTML = "";
   recipes.forEach((recipe) => {
@@ -49,7 +49,6 @@ export const displayRecipes = (recipes) => {
   displayListUstensils(recipes);
   displayListIngredients(recipes);
   searchBarPrincipal();
-
 };
 
 export const displayRecipesWithoutLists = (recipes) => {
@@ -66,8 +65,8 @@ export const displayRecipesWithoutLists = (recipes) => {
 export const displayListIngredients = (recipes) => {
   const sectionListIngredients = document.querySelector(
     ".menu-filter__container-filter__menu__list-ingredients"
-    );
-    sectionListIngredients.innerHTML = "";
+  );
+  sectionListIngredients.innerHTML = "";
 
   let listIngredients = [];
 
@@ -80,8 +79,6 @@ export const displayListIngredients = (recipes) => {
       // Ajoutez les noms d'ingrédients à la liste
       listIngredients = listIngredients.concat(dataIngredients);
 
-     
-
       for (let i = 0; i < listIngredients.length; i++) {
         listIngredients[i] = listIngredients[i].toLowerCase();
 
@@ -93,11 +90,17 @@ export const displayListIngredients = (recipes) => {
     }
   }
   //trier le tableau par ordre alphabétiques et retire les doublons (localeCompare : pour éviter les lettres avec accents à la fin de la liste)
-  const uniqueIngredients = [...new Set(listIngredients)].sort((a, b) => a.localeCompare(b, undefined, { sensitivity: "base" }));
+  const uniqueIngredients = [...new Set(listIngredients)].sort((a, b) =>
+    a.localeCompare(b, undefined, { sensitivity: "base" })
+  );
 
-  const divPinIngredients = document.querySelectorAll('.menu-filter__container-filter__menu__section-pin-ingredients__pinElement');
-  const pinIngredients = Array.from(divPinIngredients).map((element) => element.textContent);
-  
+  const divPinIngredients = document.querySelectorAll(
+    ".menu-filter__container-filter__menu__section-pin-ingredients__pinElement"
+  );
+  const pinIngredients = Array.from(divPinIngredients).map(
+    (element) => element.textContent
+  );
+
   // ajoute les elements uniques à la list et vérifie qu'il n'est pas affiché en haut en mode figer
   uniqueIngredients.forEach((ingredientName) => {
     if (!pinIngredients.includes(ingredientName)) {
@@ -105,12 +108,9 @@ export const displayListIngredients = (recipes) => {
     }
   });
 
-
   ingredientSearch();
 
   handleIngredientsElementList();
-
-
 };
 
 export const displayListAppliance = (recipes) => {
@@ -140,14 +140,18 @@ export const displayListAppliance = (recipes) => {
     }
   }
 
-
   //trier le tableau par ordre alphabétiques et retire les doublons (localeCompare : pour éviter les lettres avec accents à la fin de la liste)
-  const uniqueAppliance = [...new Set(listAppliance)].sort((a, b) => a.localeCompare(b, undefined, { sensitivity: "base" }));
- 
+  const uniqueAppliance = [...new Set(listAppliance)].sort((a, b) =>
+    a.localeCompare(b, undefined, { sensitivity: "base" })
+  );
 
-  const divPinAppliance = document.querySelectorAll('.menu-filter__container-filter__menu__section-pin-appliance__pinElement');
-  const pinAppliance = Array.from(divPinAppliance).map((element) => element.textContent);
-  
+  const divPinAppliance = document.querySelectorAll(
+    ".menu-filter__container-filter__menu__section-pin-appliance__pinElement"
+  );
+  const pinAppliance = Array.from(divPinAppliance).map(
+    (element) => element.textContent
+  );
+
   // ajoute les elements uniques à la list et vérifie qu'il n'est pas affiché en haut en mode figer
   uniqueAppliance.forEach((appliance) => {
     if (!pinAppliance.includes(appliance)) {
@@ -156,8 +160,8 @@ export const displayListAppliance = (recipes) => {
   });
 
   applianceSearch();
- 
-  handleApplianceElementList ();
+
+  handleApplianceElementList();
 };
 
 export const displayListUstensils = (recipes) => {
@@ -183,12 +187,18 @@ export const displayListUstensils = (recipes) => {
       }
     }
   }
- //trier le tableau par ordre alphabétiques et retire les doublons (localeCompare : pour éviter les lettres avec accents à la fin de la liste)
- const uniqueUstensil = [...new Set(listUstensils)].sort((a, b) => a.localeCompare(b, undefined, { sensitivity: "base" }));
+  //trier le tableau par ordre alphabétiques et retire les doublons (localeCompare : pour éviter les lettres avec accents à la fin de la liste)
+  const uniqueUstensil = [...new Set(listUstensils)].sort((a, b) =>
+    a.localeCompare(b, undefined, { sensitivity: "base" })
+  );
 
-  const divPinUstensils = document.querySelectorAll('.menu-filter__container-filter__menu__section-pin-ustensils__pinElement');
-  const pinUstensils = Array.from(divPinUstensils).map((element) => element.textContent);
-  
+  const divPinUstensils = document.querySelectorAll(
+    ".menu-filter__container-filter__menu__section-pin-ustensils__pinElement"
+  );
+  const pinUstensils = Array.from(divPinUstensils).map(
+    (element) => element.textContent
+  );
+
   // ajoute les elements uniques à la list et vérifie qu'il n'est pas affiché en haut en mode figer
   uniqueUstensil.forEach((ustensil) => {
     if (!pinUstensils.includes(ustensil)) {
