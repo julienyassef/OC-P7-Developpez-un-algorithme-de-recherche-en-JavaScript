@@ -141,6 +141,7 @@ const divsUstensils = document.querySelectorAll(
         });
     });
 };
+
 export const filterRecipesDeleteByTag = () => {
   const recipes = getData();
 
@@ -156,6 +157,7 @@ export const filterRecipesDeleteByTag = () => {
     const recipeIngredients = recipe.ingredients
       .map((ingredients) => ingredients.ingredient.toLowerCase())
       .join(" ");
+      console.log(recipeIngredients)
 
     const recipeAppliance = recipe.appliance.toLowerCase();
 
@@ -183,7 +185,7 @@ export const filterRecipesDeleteByTag = () => {
       );
 
     // La recette doit passer à true si elle passe les deux filtres
-    if (passesSearchFilter && passesTagFilter) {
+    if (passesSearchFilter || passesTagFilter) {
       recipe.display = true;
     } else {
       recipe.display = false;

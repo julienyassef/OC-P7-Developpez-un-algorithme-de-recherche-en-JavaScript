@@ -16,6 +16,5 @@ const init = async () => {
 
   toggleFilterMenus();
 
-
 };
 init();
