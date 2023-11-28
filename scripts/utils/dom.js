@@ -97,9 +97,15 @@ export const displayListIngredients = (recipes) => {
   const divPinIngredients = document.querySelectorAll(
     ".menu-filter__container-filter__menu__section-pin-ingredients__pinElement"
   );
-  const pinIngredients = Array.from(divPinIngredients).map(
-    (element) => element.textContent
-  );
+  
+  const pinIngredients = [];
+  const divPinIngredientsArray = Array.from(divPinIngredients);
+  
+  for (let i = 0; i < divPinIngredientsArray.length; i++) {
+    const element = divPinIngredientsArray[i];
+    pinIngredients.push(element.textContent);
+  }
+  
 
   // ajoute les elements uniques à la list et vérifie qu'il n'est pas affiché en haut en mode figer
   uniqueIngredients.forEach((ingredientName) => {
@@ -148,9 +154,15 @@ export const displayListAppliance = (recipes) => {
   const divPinAppliance = document.querySelectorAll(
     ".menu-filter__container-filter__menu__section-pin-appliance__pinElement"
   );
-  const pinAppliance = Array.from(divPinAppliance).map(
-    (element) => element.textContent
-  );
+  
+  const pinAppliance = [];
+  const divPinApplianceArray = Array.from(divPinAppliance);
+  
+  for (let i = 0; i < divPinApplianceArray.length; i++) {
+    const element = divPinApplianceArray[i];
+    pinAppliance.push(element.textContent);
+  }
+  
 
   // ajoute les elements uniques à la list et vérifie qu'il n'est pas affiché en haut en mode figer
   uniqueAppliance.forEach((appliance) => {
@@ -195,9 +207,15 @@ export const displayListUstensils = (recipes) => {
   const divPinUstensils = document.querySelectorAll(
     ".menu-filter__container-filter__menu__section-pin-ustensils__pinElement"
   );
-  const pinUstensils = Array.from(divPinUstensils).map(
-    (element) => element.textContent
-  );
+  
+  const pinUstensils = [];
+  const divPinUstensilsArray = Array.from(divPinUstensils);
+  
+  for (let i = 0; i < divPinUstensilsArray.length; i++) {
+    const element = divPinUstensilsArray[i];
+    pinUstensils.push(element.textContent);
+  }
+  
 
   // ajoute les elements uniques à la list et vérifie qu'il n'est pas affiché en haut en mode figer
   uniqueUstensil.forEach((ustensil) => {
