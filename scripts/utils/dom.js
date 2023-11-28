@@ -37,13 +37,8 @@ export const errorMessage = (recipes) => {
 export const displayRecipes = (recipes) => {
   countRecipe(recipes);
   errorMessage(recipes);
-  const domSection = document.querySelector(".recipe-section");
-  domSection.innerHTML = "";
-  recipes.forEach((recipe) => {
-    if (recipe.display === true) {
-      domSection.appendChild(createRecipeCard(recipe));
-    }
-  });
+  
+  displayRecipesWithoutLists(recipes);
 
   displayListAppliance(recipes);
   displayListUstensils(recipes);
@@ -55,11 +50,12 @@ export const displayRecipesWithoutLists = (recipes) => {
   countRecipe(recipes);
   const domSection = document.querySelector(".recipe-section");
   domSection.innerHTML = "";
-  recipes.forEach((recipe) => {
-    if (recipe.display === true) {
-      domSection.appendChild(createRecipeCard(recipe));
-    }
-  });
+
+  const recipeCards = recipes
+    .filter((recipe) => recipe.display === true)
+    .map((recipe) => createRecipeCard(recipe));
+
+  domSection.append(...recipeCards);
 };
 
 export const displayListIngredients = (recipes) => {
@@ -70,26 +66,22 @@ export const displayListIngredients = (recipes) => {
 
   let listIngredients = [];
 
-  for (let i = 0; i < recipes.length; i++) {
-    const recipe = recipes[i];
+  recipes.forEach((recipe) => {
     if (recipe.display === true) {
       const ingredients = recipe.ingredients;
       const dataIngredients = ingredients.map((element) => element.ingredient);
 
       // Ajoutez les noms d'ingrédients à la liste
       listIngredients = listIngredients.concat(dataIngredients);
-
-      for (let i = 0; i < listIngredients.length; i++) {
-        listIngredients[i] = listIngredients[i].toLowerCase();
-
-        // Mettre la première lettre en majuscule
-        listIngredients[i] =
-          listIngredients[i].charAt(0).toUpperCase() +
-          listIngredients[i].slice(1);
-      }
     }
-  }
-  //trier le tableau par ordre alphabétiques et retire les doublons (localeCompare : pour éviter les lettres avec accents à la fin de la liste)
+  });
+
+  // Mettre la première lettre en majuscule
+  listIngredients = listIngredients.map((ingredient) =>
+    ingredient.charAt(0).toUpperCase() + ingredient.slice(1)
+  );
+
+  // Trier le tableau par ordre alphabétique et retirer les doublons
   const uniqueIngredients = [...new Set(listIngredients)].sort((a, b) =>
     a.localeCompare(b, undefined, { sensitivity: "base" })
   );
@@ -101,15 +93,14 @@ export const displayListIngredients = (recipes) => {
     (element) => element.textContent
   );
 
-  // ajoute les elements uniques à la list et vérifie qu'il n'est pas affiché en haut en mode figer
-  uniqueIngredients.forEach((ingredientName) => {
-    if (!pinIngredients.includes(ingredientName)) {
+  // Ajoute les éléments uniques à la liste et vérifie qu'il n'est pas affiché en haut en mode figé
+  uniqueIngredients
+    .filter((ingredientName) => !pinIngredients.includes(ingredientName))
+    .forEach((ingredientName) => {
       sectionListIngredients.appendChild(createlistIngredients(ingredientName));
-    }
-  });
+    });
 
   ingredientSearch();
-
   handleIngredientsElementList();
 };
 
@@ -122,25 +113,20 @@ export const displayListAppliance = (recipes) => {
 
   let listAppliance = [];
 
-  for (let i = 0; i < recipes.length; i++) {
-    const recipe = recipes[i];
-    const appliances = recipe.appliance;
-
+  recipes.forEach((recipe) => {
     if (recipe.display === true) {
+      const appliances = recipe.appliance;
       // Ajoutez les noms des appareils à la liste
       listAppliance.push(appliances);
-
-      for (let i = 0; i < listAppliance.length; i++) {
-        listAppliance[i] = listAppliance[i].toLowerCase();
-
-        // Mettre la première lettre en majuscule
-        listAppliance[i] =
-          listAppliance[i].charAt(0).toUpperCase() + listAppliance[i].slice(1);
-      }
     }
-  }
+  });
 
-  //trier le tableau par ordre alphabétiques et retire les doublons (localeCompare : pour éviter les lettres avec accents à la fin de la liste)
+  // Mettre la première lettre en majuscule
+  listAppliance = listAppliance.map((appliance) =>
+    appliance.toLowerCase().charAt(0).toUpperCase() + appliance.slice(1)
+  );
+
+  // Trier le tableau par ordre alphabétique et retirer les doublons
   const uniqueAppliance = [...new Set(listAppliance)].sort((a, b) =>
     a.localeCompare(b, undefined, { sensitivity: "base" })
   );
@@ -152,12 +138,12 @@ export const displayListAppliance = (recipes) => {
     (element) => element.textContent
   );
 
-  // ajoute les elements uniques à la list et vérifie qu'il n'est pas affiché en haut en mode figer
-  uniqueAppliance.forEach((appliance) => {
-    if (!pinAppliance.includes(appliance)) {
+  // Ajoute les éléments uniques à la liste et vérifie qu'il n'est pas affiché en haut en mode figé
+  uniqueAppliance
+    .filter((appliance) => !pinAppliance.includes(appliance))
+    .forEach((appliance) => {
       sectionListAppliance.appendChild(createlistAppliances(appliance));
-    }
-  });
+    });
 
   applianceSearch();
 
@@ -172,22 +158,20 @@ export const displayListUstensils = (recipes) => {
 
   let listUstensils = [];
 
-  for (let i = 0; i < recipes.length; i++) {
-    const recipe = recipes[i];
-    const ustensils = recipe.ustensils;
+  recipes.forEach((recipe) => {
     if (recipe.display === true) {
+      const ustensils = recipe.ustensils;
+      // Ajoutez les noms des ustensiles à la liste
       listUstensils = listUstensils.concat(ustensils);
-
-      for (let i = 0; i < listUstensils.length; i++) {
-        listUstensils[i] = listUstensils[i].toLowerCase();
-
-        // Mettre la première lettre en majuscule
-        listUstensils[i] =
-          listUstensils[i].charAt(0).toUpperCase() + listUstensils[i].slice(1);
-      }
     }
-  }
-  //trier le tableau par ordre alphabétiques et retire les doublons (localeCompare : pour éviter les lettres avec accents à la fin de la liste)
+  });
+
+  // Mettre la première lettre en majuscule
+  listUstensils = listUstensils.map((ustensil) =>
+    ustensil.toLowerCase().charAt(0).toUpperCase() + ustensil.slice(1)
+  );
+
+  // Trier le tableau par ordre alphabétique et retirer les doublons
   const uniqueUstensil = [...new Set(listUstensils)].sort((a, b) =>
     a.localeCompare(b, undefined, { sensitivity: "base" })
   );
@@ -199,14 +183,15 @@ export const displayListUstensils = (recipes) => {
     (element) => element.textContent
   );
 
-  // ajoute les elements uniques à la list et vérifie qu'il n'est pas affiché en haut en mode figer
-  uniqueUstensil.forEach((ustensil) => {
-    if (!pinUstensils.includes(ustensil)) {
+  // Ajoute les éléments uniques à la liste et vérifie qu'il n'est pas affiché en haut en mode figé
+  uniqueUstensil
+    .filter((ustensil) => !pinUstensils.includes(ustensil))
+    .forEach((ustensil) => {
       sectionListUstensils.appendChild(createlistUstensils(ustensil));
-    }
-  });
+    });
 
   ustensileSearch();
 
   handleUstensilsElementList();
 };
+
